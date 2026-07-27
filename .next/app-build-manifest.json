@@ -1,0 +1,115 @@
+{
+  "pages": {
+    "/layout": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/layout.css",
+      "static/chunks/app/layout.js"
+    ],
+    "/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/page.js"
+    ],
+    "/join-us/donate/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/join-us/donate/page.js"
+    ],
+    "/join-us/volunteer/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/join-us/volunteer/page.js"
+    ],
+    "/who-we-are/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/who-we-are/page.js"
+    ],
+    "/who-we-are/our-story/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/who-we-are/our-story/page.js"
+    ],
+    "/what-we-do/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/what-we-do/page.js"
+    ],
+    "/what-we-do/[slug]/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/what-we-do/[slug]/page.js"
+    ],
+    "/who-we-are/vision-mission-values/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/who-we-are/vision-mission-values/page.js"
+    ],
+    "/impact/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/impact/page.js"
+    ],
+    "/join-us/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/join-us/page.js"
+    ],
+    "/join-us/internship/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/join-us/internship/page.js"
+    ],
+    "/join-us/partner-with-us/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/join-us/partner-with-us/page.js"
+    ],
+    "/join-us/careers/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/join-us/careers/page.js"
+    ],
+    "/news-resources/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/news-resources/page.js"
+    ],
+    "/who-we-are/structure/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/who-we-are/structure/page.js"
+    ],
+    "/who-we-are/legal-status/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/who-we-are/legal-status/page.js"
+    ],
+    "/who-we-are/board-of-trustees/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/who-we-are/board-of-trustees/page.js"
+    ],
+    "/news-resources/[slug]/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/news-resources/[slug]/page.js"
+    ],
+    "/news-resources/reports/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/news-resources/reports/page.js"
+    ],
+    "/contact/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/contact/page.js"
+    ],
+    "/_not-found/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/_not-found/page.js"
+    ]
+  }
+}

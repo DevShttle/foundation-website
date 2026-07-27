@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 44 47% 96%; /* #FBF8F1 Soft Ivory */
+    --foreground: 161 14% 14%; /* #202A28 Charcoal */
+
+    --card: 44 47% 96%;
+    --card-foreground: 161 14% 14%;
+
+    --popover: 44 47% 96%;
+    --popover-foreground: 161 14% 14%;
+
+    --primary: 165 77% 20%; /* #0C5B48 Deep emerald green */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 150 24% 89%; /* #DDE9E3 Warm sage */
+    --secondary-foreground: 165 77% 20%;
+
+    --muted: 150 24% 89%;
+    --muted-foreground: 161 14% 35%; /* Lighter charcoal */
+
+    --accent: 42 55% 49%; /* #C39A38 Muted gold */
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 150 24% 80%; /* Slightly darker sage for borders */
+    --input: 150 24% 80%;
+    --ring: 165 77% 20%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 161 14% 14%; /* Charcoal */
+    --foreground: 44 47% 96%; /* Ivory */
+
+    --card: 161 14% 18%;
+    --card-foreground: 44 47% 96%;
+
+    --popover: 161 14% 14%;
+    --popover-foreground: 44 47% 96%;
+
+    --primary: 150 24% 89%; /* Sage for primary in dark mode */
+    --primary-foreground: 165 77% 20%; /* Emerald */
+
+    --secondary: 165 77% 20%;
+    --secondary-foreground: 44 47% 96%;
+
+    --muted: 161 14% 20%;
+    --muted-foreground: 150 24% 75%;
+
+    --accent: 42 55% 49%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 44 47% 96%;
+
+    --border: 161 14% 25%;
+    --input: 161 14% 25%;
+    --ring: 150 24% 89%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
