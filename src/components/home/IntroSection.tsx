@@ -14,7 +14,7 @@ export function IntroSection() {
             {/* Main Photo */}
             <div className="absolute top-0 left-0 w-3/4 h-[85%] bg-brand-sage rounded-tr-xl rounded-tl-xl rounded-bl-xl rounded-br-[180px] overflow-hidden">
               <Image 
-                src="/images/about/intro-1.jpg" 
+                src="/images/about/intro-1.png" 
                 alt="Students learning" 
                 fill 
                 className="object-cover" 

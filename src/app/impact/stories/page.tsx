@@ -9,7 +9,7 @@ export default function StoriesIndexPage() {
     <div className="bg-[#fbf8f1] min-h-screen pb-24">
       {/* Hero */}
       <section className="bg-brand-green text-white py-24 relative overflow-hidden">
-        <Image src="/images/headers/header-impact.jpg" alt="Stories of Change" fill className="object-cover z-0 opacity-20 mix-blend-luminosity" />
+        <Image src="/images/headers/header-impact.jpg" alt="Stories of Change" fill className="object-cover z-0 opacity-30 mix-blend-luminosity" />
         <div className="absolute inset-0 bg-brand-green/80 z-0 pointer-events-none" />
         <div className="container mx-auto px-4 relative z-10 text-center">
           <span className="inline-block text-[10px] font-bold uppercase tracking-[0.2em] text-brand-gold mb-6 border-b border-brand-gold/30 pb-2">
@@ -30,7 +30,7 @@ export default function StoriesIndexPage() {
             <div key={story.id} className="bg-white rounded-xl shadow-[0_5px_20px_rgba(12,91,72,0.04)] border border-gray-100 overflow-hidden flex flex-col group transition-all duration-300 hover:shadow-[0_15px_35px_rgba(12,91,72,0.08)] hover:-translate-y-1">
               <div className="h-56 bg-brand-sage/60 relative flex items-center justify-center overflow-hidden">
                 <Image 
-                  src={`/images/stories/story-${(story.id % 3) + 1}.jpg`} 
+                  src={`/images/stories/story-${((parseInt(story.id.replace(/\D/g, "") || "1", 10)) % 3) + 1}.jpg`} 
                   alt={story.title} 
                   fill 
                   className="object-cover transition-transform duration-500 group-hover:scale-105" 
