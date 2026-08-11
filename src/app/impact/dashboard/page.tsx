@@ -7,7 +7,7 @@ export default function ImpactDashboardPage() {
     <div className="bg-brand-ivory min-h-screen pb-24">
       {/* Hero */}
       <section className="bg-brand-charcoal text-white py-24 relative overflow-hidden">
-        <Image src="/images/headers/header-impact.jpg" alt="Impact Dashboard" fill className="object-cover z-0 opacity-30 mix-blend-luminosity" />
+        <Image src="/images/headers/header-impact.jpg" alt="Impact Dashboard" fill className="object-cover z-0 opacity-20 mix-blend-luminosity" />
         <div className="absolute inset-0 bg-brand-charcoal/80 z-0 pointer-events-none" />
         <div className="absolute top-0 right-0 w-1/2 h-full bg-brand-green/20 rounded-l-[200px] pointer-events-none z-0" />
         <div className="container mx-auto px-4 relative z-10 text-center">

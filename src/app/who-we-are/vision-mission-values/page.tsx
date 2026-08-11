@@ -16,7 +16,7 @@ export default function VisionMissionValuesPage() {
     <div className="bg-[#f2eee4] min-h-screen pb-24">
       {/* Hero */}
       <section className="bg-brand-charcoal text-white py-24 lg:py-32 relative overflow-hidden">
-        <Image src="/images/headers/header-who-we-are.jpg" alt="Vision Mission Values" fill className="object-cover z-0 opacity-30 mix-blend-luminosity" />
+        <Image src="/images/headers/header-who-we-are.jpg" alt="Vision Mission Values" fill className="object-cover z-0 opacity-20 mix-blend-luminosity" />
         <div className="absolute top-0 right-0 w-1/2 h-full bg-brand-green/20 rounded-l-[200px] pointer-events-none z-0" />
         <div className="absolute inset-0 bg-brand-charcoal/60 z-0 pointer-events-none" />
         <div className="container mx-auto px-4 relative z-10 text-center">
