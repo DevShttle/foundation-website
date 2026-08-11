@@ -9,7 +9,7 @@ export default function OurStoryPage() {
     <div className="bg-brand-ivory min-h-screen pb-24">
       {/* Hero */}
       <section className="bg-brand-green text-white py-24 lg:py-32 relative overflow-hidden">
-        <Image src="/images/headers/header-who-we-are.jpg" alt="Our Story" fill className="object-cover z-0 opacity-20 mix-blend-luminosity" />
+        <Image src="/images/headers/header-who-we-are.jpg" alt="Our Story" fill className="object-cover z-0 opacity-30 mix-blend-luminosity" />
         <div className="absolute inset-0 bg-brand-green/80 z-0 pointer-events-none" />
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl">

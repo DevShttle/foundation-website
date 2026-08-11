@@ -9,7 +9,7 @@ export default function WhatWeDoPage() {
     <div className="bg-brand-ivory min-h-screen pb-24">
       {/* Hero */}
       <section className="bg-brand-green text-white py-24 relative overflow-hidden">
-        <Image src="/images/headers/header-what-we-do.jpg" alt="What We Do" fill className="object-cover z-0 opacity-20 mix-blend-luminosity" />
+        <Image src="/images/headers/header-what-we-do.jpg" alt="What We Do" fill className="object-cover z-0 opacity-30 mix-blend-luminosity" />
         <div className="absolute inset-0 bg-brand-green/80 z-0 pointer-events-none" />
         <div className="container mx-auto px-4 relative z-10 text-center">
           <span className="inline-block text-[10px] font-bold uppercase tracking-[0.2em] text-brand-gold mb-6 border-b border-brand-gold/30 pb-2">
