@@ -79,8 +79,8 @@ export default function ContactPage() {
                   <div>
                     <h3 className="font-bold text-brand-charcoal text-sm">Registered Office</h3>
                     <p className="text-gray-600 text-sm leading-relaxed mt-1">
-                      Chandergaon, Post Office Laucha,<br />
-                      Police Station Bahadurganj,<br />
+                      MASOOM COMPLEX, Chandergaon,<br />
+                      Post Office Laucha, Police Station Bahadurganj,<br />
                       District Kishanganj, Bihar 855101, India
                     </p>
                   </div>
@@ -110,14 +110,14 @@ export default function ContactPage() {
 
               <div className="mt-8 pt-8 border-t border-gray-100">
                 <h3 className="font-bold text-brand-charcoal text-sm mb-2">Office Hours</h3>
-                <p className="text-gray-600 text-sm">Monday to Saturday: 9:00 AM – 5:00 PM<br />Sunday: Closed</p>
+                <p className="text-gray-600 text-sm">Saturday to Thursday: 9:00 AM – 5:00 PM<br />Friday: Closed</p>
               </div>
             </div>
 
             {/* Embedded Map */}
             <div className="h-64 rounded-xl flex items-center justify-center border border-brand-sage/50 relative overflow-hidden bg-brand-sage">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d227915.22857416447!2d87.77196328328409!3d26.111956553258525!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39e50dfb658d4a51%3A0x2a0dcb9b360b73c2!2sKishanganj%2C%20Bihar!5e0!3m2!1sen!2sin!4v1690000000000!5m2!1sen!2sin"
+                src="https://maps.google.com/maps?q=MASOOM%20COMPLEX,%20Laucha,%20Bihar%20855101&t=&z=15&ie=UTF8&iwloc=&output=embed"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}

@@ -61,7 +61,7 @@ export function Footer() {
             <h4 className="text-white text-xs uppercase tracking-widest font-bold mb-2">Contact</h4>
             <div className="flex items-start gap-3 text-sm">
               <MapPin size={18} className="shrink-0 mt-0.5 text-brand-gold" />
-              <p>Chandergaon, PO Laucha<br />PS Bahadurganj<br />Dist Kishanganj<br />Bihar 855101, India</p>
+              <p>MASOOM COMPLEX, Chandergaon<br />PO Laucha, PS Bahadurganj<br />Dist Kishanganj<br />Bihar 855101, India</p>
             </div>
             <a href="mailto:info@islahfoundation.org" className="flex items-center gap-3 text-sm hover:text-white transition-colors">
               <EnvelopeSimple size={18} className="text-brand-gold" />
