@@ -21,11 +21,7 @@ export default async function ProgrammePage({ params }: Props) {
     <div className="bg-white min-h-screen pb-24">
       {/* 1. Programme Hero */}
       <section className="bg-brand-charcoal text-white py-24 lg:py-32 relative overflow-hidden">
-<<<<<<< HEAD
         <Image src="/images/headers/header-what-we-do.png" alt={program.title} fill className="object-cover z-0 opacity-30 mix-blend-luminosity" />
-=======
-        <Image src="/images/headers/header-what-we-do.jpg" alt={program.title} fill className="object-cover z-0 opacity-30 mix-blend-luminosity" />
->>>>>>> 40097da30d34d31e1fcec2eeab93e1305e953c4d
         <div className="absolute inset-0 bg-brand-charcoal/80 z-0 pointer-events-none" />
         <div className="absolute top-0 right-0 w-1/2 h-full bg-brand-green/20 rounded-l-[200px] pointer-events-none z-0" />
         <div className="container mx-auto px-4 relative z-10 flex flex-col lg:flex-row gap-12 lg:gap-24 items-center">

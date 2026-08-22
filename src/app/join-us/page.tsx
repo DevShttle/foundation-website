@@ -33,14 +33,8 @@ export default function JoinUsIndexPage() {
 
   return (
     <div className="bg-[#fbf8f1] min-h-screen pb-24">
-<<<<<<< HEAD
       <section className="bg-brand-green text-white py-24 relative overflow-hidden">
         <Image src="/images/headers/header-join-us.png" alt="Join Us" fill className="object-cover z-0 opacity-30 mix-blend-luminosity" />
-=======
-      <section className="bg-brand-charcoal text-white py-24 relative overflow-hidden">
-        <Image src="/images/headers/header-join-us.jpg" alt="Join Us" fill className="object-cover z-0 opacity-30 mix-blend-luminosity" />
-        <div className="absolute inset-0 bg-brand-charcoal/80 z-0 pointer-events-none" />
->>>>>>> 40097da30d34d31e1fcec2eeab93e1305e953c4d
         <div className="container mx-auto px-4 relative z-10 text-center">
           <span className="inline-block text-[10px] font-bold uppercase tracking-[0.2em] text-brand-gold mb-6 border-b border-brand-gold/30 pb-2">
             Get Involved

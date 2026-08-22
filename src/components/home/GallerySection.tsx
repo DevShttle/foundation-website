@@ -203,7 +203,6 @@ export function GallerySection() {
             View All Photos
           </Link>
         </div>
-      )}
     </section>
   );
 }

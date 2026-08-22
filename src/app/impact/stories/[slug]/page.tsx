@@ -21,12 +21,7 @@ export default async function StoryPage({ params }: Props) {
     <div className="bg-white min-h-screen pb-24">
       {/* 1. Hero */}
       <section className="bg-brand-sage h-[400px] lg:h-[500px] relative flex items-center justify-center overflow-hidden">
-<<<<<<< HEAD
         <Image src={`/images/stories/story-${(story.id % 3) + 1}.jpg`} alt={story.title} fill className="object-cover z-0" />
-=======
-        <Image src={`/images/stories/story-${((parseInt(story.id.replace(/\D/g, "") || "1", 10)) % 3) + 1}.jpg`} alt={story.title} fill className="object-cover z-0" />
-        <div className="absolute inset-0 bg-brand-charcoal/20 z-0 pointer-events-none" />
->>>>>>> 40097da30d34d31e1fcec2eeab93e1305e953c4d
       </section>
 
       <div className="container mx-auto px-4 -mt-32 relative z-20 max-w-4xl">
