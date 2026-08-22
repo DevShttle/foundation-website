@@ -3,6 +3,16 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { Maximize2 } from "lucide-react";
+
+interface GalleryImage {
+  id: number;
+  title: string;
+  category: string;
+  size: string;
+  src: string;
+}
+
 
 export function GallerySection() {
   const [activeFilter, setActiveFilter] = useState("All");
