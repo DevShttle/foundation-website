@@ -4,6 +4,11 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Maximize2 } from "lucide-react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { EffectCoverflow, Pagination } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/effect-coverflow";
+import "swiper/css/pagination";
 
 interface GalleryImage {
   id: number;
@@ -181,7 +186,7 @@ export function GallerySection() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 auto-rows-[250px]">
+        <div className="hidden md:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 auto-rows-[250px]">
           {visibleImages.map((img, idx) => (
             <div
               key={img.id}
@@ -206,6 +211,50 @@ export function GallerySection() {
               </div>
             </div>
           ))}
+        </div>
+
+        <div className="block md:hidden -mx-4 pb-8">
+          <Swiper
+            effect={"coverflow"}
+            grabCursor={true}
+            centeredSlides={true}
+            slidesPerView={"auto"}
+            coverflowEffect={{
+              rotate: 0,
+              stretch: 0,
+              depth: 100,
+              modifier: 1,
+              slideShadows: false,
+            }}
+            pagination={{ clickable: true }}
+            modules={[EffectCoverflow, Pagination]}
+            className="w-full h-[350px] !pb-12"
+          >
+            {visibleImages.map((img, idx) => (
+              <SwiperSlide 
+                key={img.id} 
+                className="!w-[85%] !h-[280px] bg-brand-sage rounded-xl relative overflow-hidden cursor-pointer" 
+                onClick={() => setSelectedImageIndex(idx)}
+              >
+                  <Image
+                    src={img.src}
+                    alt={img.title}
+                    fill
+                    className="object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-brand-charcoal/90 via-brand-charcoal/20 to-transparent opacity-70 z-10" />
+                  <div className="absolute top-4 right-4 z-20 bg-black/40 backdrop-blur-md p-2 rounded-full text-white">
+                    <Maximize2 size={16} />
+                  </div>
+                  <div className="absolute bottom-6 left-6 z-20 transition-all duration-300">
+                    <span className="text-[9px] uppercase tracking-widest font-bold text-white bg-brand-green/80 px-2 py-1 rounded mb-2 inline-block backdrop-blur-sm">
+                      {img.category}
+                    </span>
+                    <h4 className="font-serif text-xl text-white">{img.title}</h4>
+                  </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </div>
 
         <div className="mt-12 text-center">

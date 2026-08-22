@@ -1,7 +1,14 @@
+"use client";
+
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { EffectCoverflow, Pagination } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/effect-coverflow";
+import "swiper/css/pagination";
 
 export default function GalleryPage() {
   const allImages = [
@@ -40,7 +47,7 @@ export default function GalleryPage() {
           </Link>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <div className="hidden sm:grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {allImages.map((img, idx) => (
             <div key={idx} className="bg-white rounded-xl relative overflow-hidden group shadow-sm border border-brand-sage/50 h-64">
               <Image
@@ -58,6 +65,46 @@ export default function GalleryPage() {
               </div>
             </div>
           ))}
+        </div>
+
+        <div className="block sm:hidden -mx-4 pb-8">
+          <Swiper
+            effect={"coverflow"}
+            grabCursor={true}
+            centeredSlides={true}
+            slidesPerView={"auto"}
+            coverflowEffect={{
+              rotate: 0,
+              stretch: 0,
+              depth: 100,
+              modifier: 1,
+              slideShadows: false,
+            }}
+            pagination={{ clickable: true }}
+            modules={[EffectCoverflow, Pagination]}
+            className="w-full h-[350px] !pb-12"
+          >
+            {allImages.map((img, idx) => (
+              <SwiperSlide 
+                key={idx} 
+                className="!w-[85%] !h-[280px] bg-brand-sage rounded-xl relative overflow-hidden cursor-pointer" 
+              >
+                  <Image
+                    src={img.src}
+                    alt={img.title}
+                    fill
+                    className="object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-brand-charcoal/90 via-brand-charcoal/20 to-transparent opacity-70 z-10" />
+                  <div className="absolute bottom-6 left-6 z-20 transition-all duration-300">
+                    <span className="text-[9px] uppercase tracking-widest font-bold text-white bg-brand-green/80 px-2 py-1 rounded mb-2 inline-block backdrop-blur-sm">
+                      {img.category}
+                    </span>
+                    <h4 className="font-serif text-xl text-white">{img.title}</h4>
+                  </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </div>
       </div>
     </div>

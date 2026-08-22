@@ -56,8 +56,9 @@ export default function InternshipPage() {
   return (
     <div className="bg-[#f2eee4] min-h-screen pb-24">
       {/* Hero */}
-      <section className="bg-brand-green text-white py-24 relative overflow-hidden">
-        <Image src="/images/headers/header-join-us.png" alt="Internship" fill className="object-cover z-0 opacity-30 mix-blend-luminosity" />
+      <section className="bg-brand-charcoal text-white py-24 relative overflow-hidden">
+        <Image src="/images/headers/header-join-us.png" alt="Internship" fill className="object-cover z-0 opacity-20 mix-blend-luminosity" />
+        <div className="absolute inset-0 bg-brand-charcoal/80 z-0 pointer-events-none" />
         <div className="absolute top-0 right-0 w-1/2 h-full bg-brand-green/20 rounded-l-[200px] pointer-events-none z-0" />
         <div className="container mx-auto px-4 relative z-10 text-center">
           <span className="inline-block text-[10px] font-bold uppercase tracking-[0.2em] text-brand-gold mb-6 border-b border-brand-gold/30 pb-2">
@@ -76,7 +77,7 @@ export default function InternshipPage() {
         <div className="bg-white p-8 lg:p-12 rounded-xl shadow-sm border border-brand-sage/50">
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-              
+
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <FormField
                   control={form.control}
@@ -143,7 +144,7 @@ export default function InternshipPage() {
                     </FormItem>
                   )}
                 />
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="grid grid-cols-2 gap-4">
                   <FormField
                     control={form.control}
                     name="duration"
