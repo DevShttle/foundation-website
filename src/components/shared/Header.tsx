@@ -107,8 +107,8 @@ export function Header() {
 
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 sm:gap-6 text-brand-green group hover:opacity-80 transition-opacity relative z-20 shrink-0">
-            <Image src="/images/logo.png" alt="Islah Foundation" width={150} height={150} className="w-auto h-12 sm:h-18 md:h-24 scale-[1.6] sm:scale-[1.8] origin-left object-contain" />
-            <span className="font-serif text-base sm:text-xl md:text-2xl font-bold ml-2 sm:ml-4 lg:ml-10 tracking-wide text-brand-green shrink min-w-0">Islah Foundation</span>
+            <Image src="/images/logo.png" alt="Islah Foundation" width={150} height={150} className="w-auto h-16 sm:h-20 md:h-24 scale-[1.6] sm:scale-[1.8] origin-left object-contain" />
+            <span className="font-serif text-lg sm:text-xl md:text-2xl font-bold ml-2 sm:ml-4 lg:ml-10 tracking-wide text-brand-green shrink min-w-0">Islah Foundation</span>
           </Link>
 
           {/* Desktop Nav */}
