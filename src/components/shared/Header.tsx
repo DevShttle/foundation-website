@@ -134,9 +134,9 @@ export function Header() {
         <div className="container mx-auto px-4 flex items-center justify-between">
 
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-1.5 sm:gap-6 text-brand-green group hover:opacity-80 transition-opacity relative z-20 shrink min-w-0 -ml-1 sm:ml-0">
-            <Image src="/images/logo.png" alt="Islah Foundation" width={150} height={150} className="w-auto h-12 sm:h-20 md:h-24 scale-[1.4] sm:scale-[1.8] origin-left object-contain" />
-            <span className="font-serif text-base sm:text-xl md:text-2xl font-bold ml-1 sm:ml-4 lg:ml-10 tracking-tight sm:tracking-wide text-brand-green truncate">Islah Foundation</span>
+          <Link href="/" className="flex items-center gap-2 sm:gap-6 text-brand-green group hover:opacity-80 transition-opacity relative z-20 shrink min-w-0 -ml-1 sm:ml-0">
+            <Image src="/images/logo.png" alt="Islah Foundation" width={150} height={150} className="w-auto h-14 sm:h-22 md:h-26 scale-[1.65] sm:scale-[1.95] origin-left object-contain" />
+            <span className="font-serif text-lg sm:text-2xl md:text-3xl font-bold ml-2 sm:ml-5 lg:ml-12 tracking-tight sm:tracking-wide text-brand-green truncate">Islah Foundation</span>
           </Link>
 
           {/* Desktop Nav */}
