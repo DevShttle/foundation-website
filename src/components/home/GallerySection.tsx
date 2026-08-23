@@ -3,12 +3,14 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Maximize2, X, ArrowLeft, ArrowRight } from "lucide-react";
+import { Maximize2, X, ArrowLeft, ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { EffectCoverflow, Pagination } from "swiper/modules";
+import { EffectCoverflow, Pagination, Navigation, Autoplay } from "swiper/modules";
+import { cn } from "@/lib/utils";
 import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
+import "swiper/css/navigation";
 
 interface GalleryImage {
   id: number;
@@ -213,48 +215,77 @@ export function GallerySection() {
           ))}
         </div>
 
-        <div className="block md:hidden -mx-4 pb-8">
+        {/* Mobile View: 3D Coverflow Circular Swappable Carousel */}
+        <div className="block md:hidden relative px-2 py-4">
+          <button
+            aria-label="Previous Photo"
+            className="gallery-prev absolute left-0 top-1/2 -translate-y-1/2 z-40 w-10 h-10 rounded-full bg-white/90 shadow-md border border-brand-sage/60 flex items-center justify-center text-brand-green hover:bg-brand-green hover:text-white transition-all backdrop-blur-sm"
+          >
+            <ChevronLeft size={20} />
+          </button>
+          
+          <button
+            aria-label="Next Photo"
+            className="gallery-next absolute right-0 top-1/2 -translate-y-1/2 z-40 w-10 h-10 rounded-full bg-white/90 shadow-md border border-brand-sage/60 flex items-center justify-center text-brand-green hover:bg-brand-green hover:text-white transition-all backdrop-blur-sm"
+          >
+            <ChevronRight size={20} />
+          </button>
+
           <Swiper
             effect={"coverflow"}
             grabCursor={true}
             centeredSlides={true}
-            slidesPerView={"auto"}
+            initialSlide={0}
+            loop={true}
+            slidesPerView={1.2}
             coverflowEffect={{
               rotate: 0,
               stretch: 0,
-              depth: 100,
-              modifier: 1,
+              depth: 140,
+              modifier: 2,
               slideShadows: false,
             }}
-            pagination={{ clickable: true }}
-            modules={[EffectCoverflow, Pagination]}
-            className="w-full h-[350px] !pb-12"
+            pagination={{ clickable: true, el: ".gallery-pagination" }}
+            navigation={{ prevEl: ".gallery-prev", nextEl: ".gallery-next" }}
+            autoplay={{ delay: 4000, disableOnInteraction: false, pauseOnMouseEnter: true }}
+            modules={[EffectCoverflow, Pagination, Navigation, Autoplay]}
+            className="w-full py-6 !overflow-visible"
           >
             {visibleImages.map((img, idx) => (
-              <SwiperSlide 
-                key={img.id} 
-                className="!w-[85%] !h-[280px] bg-brand-sage rounded-xl relative overflow-hidden cursor-pointer" 
-                onClick={() => setSelectedImageIndex(idx)}
-              >
-                  <Image
-                    src={img.src}
-                    alt={img.title}
-                    fill
-                    className="object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-brand-charcoal/90 via-brand-charcoal/20 to-transparent opacity-70 z-10" />
-                  <div className="absolute top-4 right-4 z-20 bg-black/40 backdrop-blur-md p-2 rounded-full text-white">
-                    <Maximize2 size={16} />
+              <SwiperSlide key={img.id} className="transition-all duration-500 py-2">
+                {({ isActive }) => (
+                  <div 
+                    className={cn(
+                      "rounded-2xl relative overflow-hidden cursor-pointer transition-all duration-500 mx-auto max-w-xs h-[300px] select-none flex flex-col justify-end p-6 border",
+                      isActive
+                        ? "scale-100 opacity-100 shadow-2xl border-brand-green/40 ring-4 ring-brand-green/10 z-30 filter-none"
+                        : "scale-85 opacity-40 blur-[2px] shadow-sm border-gray-200 z-10 grayscale-[25%]"
+                    )}
+                    onClick={() => setSelectedImageIndex(idx)}
+                  >
+                    <Image
+                      src={img.src}
+                      alt={img.title}
+                      fill
+                      className="object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-brand-charcoal/90 via-brand-charcoal/30 to-transparent opacity-80 z-10" />
+                    <div className="absolute top-4 right-4 z-20 bg-black/40 backdrop-blur-md p-2 rounded-full text-white">
+                      <Maximize2 size={16} />
+                    </div>
+                    <div className="relative z-20">
+                      <span className="text-[9px] uppercase tracking-widest font-bold text-white bg-brand-green/80 px-2.5 py-1 rounded mb-2 inline-block backdrop-blur-sm">
+                        {img.category}
+                      </span>
+                      <h4 className="font-serif text-xl text-white font-bold">{img.title}</h4>
+                    </div>
                   </div>
-                  <div className="absolute bottom-6 left-6 z-20 transition-all duration-300">
-                    <span className="text-[9px] uppercase tracking-widest font-bold text-white bg-brand-green/80 px-2 py-1 rounded mb-2 inline-block backdrop-blur-sm">
-                      {img.category}
-                    </span>
-                    <h4 className="font-serif text-xl text-white">{img.title}</h4>
-                  </div>
+                )}
               </SwiperSlide>
             ))}
           </Swiper>
+
+          <div className="gallery-pagination flex justify-center gap-2 mt-4" />
         </div>
 
         <div className="mt-12 text-center">
