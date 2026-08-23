@@ -106,9 +106,9 @@ export function Header() {
         <div className="container mx-auto px-4 flex items-center justify-between">
 
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-6 text-brand-green group hover:opacity-80 transition-opacity">
-            <Image src="/images/logo.png" alt="Islah Foundation" width={150} height={150} className="w-auto h-16 sm:h-20 scale-[1.8] origin-left object-contain" />
-            <span className="font-serif text-xl sm:text-2xl font-bold ml-4 sm:ml-8 lg:ml-10 tracking-wide text-brand-green">Islah Foundation</span>
+          <Link href="/" className="flex items-center gap-2 sm:gap-6 text-brand-green group hover:opacity-80 transition-opacity relative z-20 shrink-0">
+            <Image src="/images/logo.png" alt="Islah Foundation" width={150} height={150} className="w-auto h-10 sm:h-16 md:h-20 scale-[1.3] sm:scale-[1.8] origin-left object-contain" />
+            <span className="font-serif text-sm sm:text-xl md:text-2xl font-bold ml-2 sm:ml-4 lg:ml-10 tracking-wide text-brand-green shrink min-w-0">Islah Foundation</span>
           </Link>
 
           {/* Desktop Nav */}
@@ -159,10 +159,10 @@ export function Header() {
           </div>
 
           {/* Mobile CTAs & Menu Toggle */}
-          <div className="flex lg:hidden items-center gap-4">
+          <div className="flex lg:hidden items-center gap-2 sm:gap-4 relative z-30 shrink-0">
             <Link
               href="/join-us/volunteer"
-              className="border border-brand-green text-brand-green px-4 py-2 rounded text-xs font-bold uppercase tracking-wider"
+              className="border border-brand-green bg-brand-green text-white sm:bg-transparent sm:text-brand-green px-3 py-1.5 sm:px-4 sm:py-2 rounded text-[10px] sm:text-xs font-bold uppercase tracking-wider whitespace-nowrap"
             >
               Volunteer
             </Link>
