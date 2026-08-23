@@ -67,7 +67,7 @@ export default function Home() {
             <div className="bg-[#d9c388] rounded-tl-[200px] rounded-tr-[200px] rounded-bl-lg rounded-br-lg p-8 lg:p-16 h-[500px] flex flex-col justify-center items-center text-center">
                <div className="bg-brand-ivory p-3 shadow-2xl rotate-3 w-full h-full relative overflow-hidden">
                  <Image 
-                   src="/images/programmes/featured.jpg" 
+                   src="/images/programmes/featured.png" 
                    alt="Featured Programme" 
                    fill 
                    className="object-cover" 
