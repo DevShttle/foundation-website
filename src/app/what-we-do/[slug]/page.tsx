@@ -20,10 +20,9 @@ export default async function ProgrammePage({ params }: Props) {
   return (
     <div className="bg-white min-h-screen pb-24">
       {/* 1. Programme Hero */}
-      <section className="bg-brand-charcoal text-white py-24 lg:py-32 relative overflow-hidden">
+      <section className="bg-brand-green text-white py-24 lg:py-32 relative overflow-hidden">
         <Image src="/images/headers/header-what-we-do.png" alt={program.title} fill className="object-cover z-0 opacity-30 mix-blend-luminosity" />
-        <div className="absolute inset-0 bg-brand-charcoal/80 z-0 pointer-events-none" />
-        <div className="absolute top-0 right-0 w-1/2 h-full bg-brand-green/20 rounded-l-[200px] pointer-events-none z-0" />
+        <div className="absolute top-0 right-0 w-1/2 h-full bg-brand-gold/10 rounded-l-[200px] pointer-events-none z-0" />
         <div className="container mx-auto px-4 relative z-10 flex flex-col lg:flex-row gap-12 lg:gap-24 items-center">
           <div className="w-full lg:w-1/2">
             <span className="inline-block text-[10px] font-bold uppercase tracking-[0.2em] text-brand-gold mb-6 border-b border-brand-gold/30 pb-2">
