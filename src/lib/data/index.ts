@@ -26,8 +26,8 @@ export const programs: Program[] = [
     whoItServes: "Students from grades 5 to 10 in Kishanganj who lack access to quality supplementary education.",
     locations: ["Chandergaon", "Bahadurganj"],
     outputs: [
-      { label: "Students Supported", value: "120+" },
-      { label: "Learning Sessions", value: "450" }
+      { label: "Students Supported", value: "60+" },
+      { label: "Learning Sessions", value: "3000+" }
     ],
     gallery: [
       "/images/programmes/Screenshot 2025-05-16 214339.png",
