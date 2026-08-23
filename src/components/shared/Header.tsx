@@ -134,9 +134,9 @@ export function Header() {
         <div className="container mx-auto px-4 flex items-center justify-between">
 
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 sm:gap-6 text-brand-green group hover:opacity-80 transition-opacity relative z-20 shrink-0">
-            <Image src="/images/logo.png" alt="Islah Foundation" width={150} height={150} className="w-auto h-16 sm:h-20 md:h-24 scale-[1.6] sm:scale-[1.8] origin-left object-contain" />
-            <span className="font-serif text-lg sm:text-xl md:text-2xl font-bold ml-2 sm:ml-4 lg:ml-10 tracking-wide text-brand-green shrink min-w-0">Islah Foundation</span>
+          <Link href="/" className="flex items-center gap-1.5 sm:gap-6 text-brand-green group hover:opacity-80 transition-opacity relative z-20 shrink min-w-0 -ml-1 sm:ml-0">
+            <Image src="/images/logo.png" alt="Islah Foundation" width={150} height={150} className="w-auto h-12 sm:h-20 md:h-24 scale-[1.4] sm:scale-[1.8] origin-left object-contain" />
+            <span className="font-serif text-base sm:text-xl md:text-2xl font-bold ml-1 sm:ml-4 lg:ml-10 tracking-tight sm:tracking-wide text-brand-green truncate">Islah Foundation</span>
           </Link>
 
           {/* Desktop Nav */}
@@ -176,7 +176,7 @@ export function Header() {
             ))}
           </nav>
 
-          {/* CTAs */}
+          {/* Desktop CTAs (Theme toggle kept exclusively on desktop) */}
           <div className="hidden lg:flex items-center gap-4">
             <button
               onClick={toggleTheme}
@@ -199,34 +199,21 @@ export function Header() {
             </Link>
           </div>
 
-          {/* Mobile CTAs & Menu Toggle */}
-          <div className="flex lg:hidden items-center gap-2 sm:gap-3 relative z-30 shrink-0">
-            <button
-              onClick={toggleTheme}
-              aria-label="Toggle Day or Night theme"
-              className="p-1.5 sm:p-2 rounded-full border border-brand-green/20 bg-brand-sage/40 text-brand-green dark:text-amber-300 transition-all duration-300 flex items-center justify-center"
-              title={theme === "dark" ? "Switch to Day mode" : "Switch to Night mode"}
-            >
-              {theme === "dark" ? (
-                <Sun size={18} weight="bold" className="text-amber-400" />
-              ) : (
-                <Moon size={18} weight="bold" className="text-brand-green" />
-              )}
-            </button>
-
+          {/* Mobile CTAs & Menu Toggle (No theme button on mobile as requested) */}
+          <div className="flex lg:hidden items-center gap-2 sm:gap-3 relative z-30 shrink-0 ml-auto">
             <Link
               href="/join-us/donate"
-              className="bg-brand-green text-white px-3 py-1.5 sm:px-4 sm:py-2 rounded text-[10px] sm:text-xs font-bold uppercase tracking-wider whitespace-nowrap shadow-sm"
+              className="bg-brand-green text-white px-3.5 py-1.5 sm:px-4 sm:py-2 rounded text-[11px] sm:text-xs font-bold uppercase tracking-wider whitespace-nowrap shadow-sm"
             >
               Donate
             </Link>
             
             <button
-              className="text-brand-green p-1"
+              className="text-brand-green p-1 flex items-center justify-center focus:outline-none"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label="Toggle menu"
             >
-              {mobileMenuOpen ? <X size={26} /> : <List size={26} />}
+              {mobileMenuOpen ? <X size={28} /> : <List size={28} />}
             </button>
           </div>
         </div>
@@ -261,27 +248,9 @@ export function Header() {
                 </div>
               ))}
 
-              <div className="flex items-center justify-between border-t border-brand-green/10 pt-4 mt-2">
-                <span className="text-sm font-semibold text-brand-charcoal">Theme Mode</span>
-                <button
-                  onClick={toggleTheme}
-                  className="flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-brand-green/20 bg-brand-sage/50 text-brand-green text-xs font-bold shadow-sm"
-                >
-                  {theme === "dark" ? (
-                    <>
-                      <Sun size={16} weight="bold" className="text-amber-400" /> Day Mode
-                    </>
-                  ) : (
-                    <>
-                      <Moon size={16} weight="bold" className="text-brand-green" /> Night Mode
-                    </>
-                  )}
-                </button>
-              </div>
-
               <Link
                 href="/join-us/donate"
-                className="mt-4 bg-brand-green text-white text-center py-3.5 rounded font-bold uppercase tracking-wider shadow-sm"
+                className="mt-6 bg-brand-green text-white text-center py-3.5 rounded font-bold uppercase tracking-wider shadow-sm"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Support Our Work
