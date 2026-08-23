@@ -138,6 +138,7 @@ export interface BoardMember {
   name: string;
   role: string;
   bio: string;
+  image?: string;
 }
 
 export const boardMembers: BoardMember[] = [
@@ -145,31 +146,36 @@ export const boardMembers: BoardMember[] = [
     id: "b1",
     name: "Md. Niyaz Asghar",
     role: "Founder, Settlor, Managing Trustee & President",
-    bio: "Driving the vision and strategic direction of Islah Foundation with a focus on educational equity and community empowerment."
+    bio: "Driving the vision and strategic direction of Islah Foundation with a focus on educational equity and community empowerment.",
+    image: "/images/team/trustee-1.png"
   },
   {
     id: "b2",
     name: "Md. Mashkoor Zaidi",
     role: "Secretary",
-    bio: "Managing organizational operations, community outreach, and the daily administration of educational programs."
+    bio: "Managing organizational operations, community outreach, and the daily administration of educational programs.",
+    image: "/images/team/trustee-2.jpg"
   },
   {
     id: "b3",
     name: "Mrs. Chameli Begum",
     role: "Treasurer",
-    bio: "Ensuring transparent financial governance and responsible allocation of resources across all initiatives."
+    bio: "Ensuring transparent financial governance and responsible allocation of resources across all initiatives.",
+    image: "/images/team/trustee-3.png"
   },
   {
     id: "b4",
     name: "Md. Asadulla Wakil",
     role: "Trustee",
-    bio: "Providing guidance on educational standards and community relations."
+    bio: "Providing guidance on educational standards and community relations.",
+    image: "/images/team/trustee-5.jpg"
   },
   {
     id: "b5",
     name: "Karim Iqbal Saquib",
     role: "Trustee",
-    bio: "Supporting youth mentorship and skills development programs."
+    bio: "Supporting youth mentorship and skills development programs.",
+    image: "/images/team/trustee-5.png"
   }
 ];
 
