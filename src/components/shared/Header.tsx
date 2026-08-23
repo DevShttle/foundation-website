@@ -13,12 +13,15 @@ import {
   Globe,
   List,
   X,
-  CaretDown
+  CaretDown,
+  Sun,
+  Moon
 } from "@phosphor-icons/react";
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [theme, setTheme] = useState<"light" | "dark">("light");
   const pathname = usePathname();
 
   useEffect(() => {
@@ -28,6 +31,31 @@ export function Header() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  useEffect(() => {
+    const savedTheme = localStorage.getItem("theme");
+    const systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    
+    if (savedTheme === "dark" || (!savedTheme && systemDark)) {
+      setTheme("dark");
+      document.documentElement.classList.add("dark");
+    } else {
+      setTheme("light");
+      document.documentElement.classList.remove("dark");
+    }
+  }, []);
+
+  const toggleTheme = () => {
+    if (theme === "light") {
+      setTheme("dark");
+      document.documentElement.classList.add("dark");
+      localStorage.setItem("theme", "dark");
+    } else {
+      setTheme("light");
+      document.documentElement.classList.remove("dark");
+      localStorage.setItem("theme", "light");
+    }
+  };
 
   const navLinks = [
     { label: "Home", href: "/" },
@@ -150,35 +178,63 @@ export function Header() {
 
           {/* CTAs */}
           <div className="hidden lg:flex items-center gap-4">
+            <button
+              onClick={toggleTheme}
+              aria-label="Toggle Day or Night theme"
+              className="p-2.5 rounded-full border border-brand-green/20 hover:border-brand-green bg-brand-sage/40 text-brand-green dark:text-amber-300 dark:bg-brand-green/40 transition-all duration-300 flex items-center justify-center shadow-sm"
+              title={theme === "dark" ? "Switch to Day mode" : "Switch to Night mode"}
+            >
+              {theme === "dark" ? (
+                <Sun size={20} weight="bold" className="text-amber-400 animate-spin-slow" />
+              ) : (
+                <Moon size={20} weight="bold" className="text-brand-green" />
+              )}
+            </button>
+
             <Link
               href="/join-us/donate"
-              className="bg-brand-green text-white px-6 py-2.5 rounded text-xs font-bold uppercase tracking-wider hover:bg-[#083F33] transition-colors"
+              className="bg-brand-green text-white px-6 py-2.5 rounded text-xs font-bold uppercase tracking-wider hover:bg-[#083F33] transition-colors shadow-sm"
             >
               Support Our Work
             </Link>
           </div>
 
           {/* Mobile CTAs & Menu Toggle */}
-          <div className="flex lg:hidden items-center gap-2 sm:gap-4 relative z-30 shrink-0">
+          <div className="flex lg:hidden items-center gap-2 sm:gap-3 relative z-30 shrink-0">
+            <button
+              onClick={toggleTheme}
+              aria-label="Toggle Day or Night theme"
+              className="p-1.5 sm:p-2 rounded-full border border-brand-green/20 bg-brand-sage/40 text-brand-green dark:text-amber-300 transition-all duration-300 flex items-center justify-center"
+              title={theme === "dark" ? "Switch to Day mode" : "Switch to Night mode"}
+            >
+              {theme === "dark" ? (
+                <Sun size={18} weight="bold" className="text-amber-400" />
+              ) : (
+                <Moon size={18} weight="bold" className="text-brand-green" />
+              )}
+            </button>
+
             <Link
               href="/join-us/donate"
-              className="bg-brand-green text-white px-3 py-1.5 sm:px-4 sm:py-2 rounded text-[10px] sm:text-xs font-bold uppercase tracking-wider whitespace-nowrap"
+              className="bg-brand-green text-white px-3 py-1.5 sm:px-4 sm:py-2 rounded text-[10px] sm:text-xs font-bold uppercase tracking-wider whitespace-nowrap shadow-sm"
             >
               Donate
             </Link>
+            
             <button
-              className="text-brand-green"
+              className="text-brand-green p-1"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label="Toggle menu"
             >
-              {mobileMenuOpen ? <X size={28} /> : <List size={28} />}
+              {mobileMenuOpen ? <X size={26} /> : <List size={26} />}
             </button>
           </div>
         </div>
 
         {/* Mobile Navigation Drawer */}
         {mobileMenuOpen && (
-          <div className="lg:hidden absolute top-full left-0 w-full bg-brand-ivory border-t border-brand-green/10 shadow-lg p-4 flex flex-col h-[calc(100vh-80px)] overflow-y-auto">
-            <nav className="flex flex-col gap-4 mt-4">
+          <div className="lg:hidden absolute top-full left-0 w-full bg-brand-ivory dark:bg-[#1a2421] border-t border-brand-green/10 shadow-lg p-4 flex flex-col h-[calc(100vh-80px)] overflow-y-auto">
+            <nav className="flex flex-col gap-4 mt-2">
               {navLinks.map((link) => (
                 <div key={link.label} className="flex flex-col gap-2">
                   <Link
@@ -205,9 +261,27 @@ export function Header() {
                 </div>
               ))}
 
+              <div className="flex items-center justify-between border-t border-brand-green/10 pt-4 mt-2">
+                <span className="text-sm font-semibold text-brand-charcoal">Theme Mode</span>
+                <button
+                  onClick={toggleTheme}
+                  className="flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-brand-green/20 bg-brand-sage/50 text-brand-green text-xs font-bold shadow-sm"
+                >
+                  {theme === "dark" ? (
+                    <>
+                      <Sun size={16} weight="bold" className="text-amber-400" /> Day Mode
+                    </>
+                  ) : (
+                    <>
+                      <Moon size={16} weight="bold" className="text-brand-green" /> Night Mode
+                    </>
+                  )}
+                </button>
+              </div>
+
               <Link
                 href="/join-us/donate"
-                className="mt-6 bg-brand-green text-white text-center py-4 rounded font-bold uppercase tracking-wider"
+                className="mt-4 bg-brand-green text-white text-center py-3.5 rounded font-bold uppercase tracking-wider shadow-sm"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Support Our Work
