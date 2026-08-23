@@ -1,10 +1,9 @@
 "use client";
 
 import React from "react";
-import { Target, Users, Sparkles, CheckCircle2 } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 interface PathwayStep {
-  step: string;
   num: string;
   title: string;
   desc: string;
@@ -12,26 +11,22 @@ interface PathwayStep {
 
 const steps: PathwayStep[] = [
   {
-    step: "01",
-    num: "1",
+    num: "01",
     title: "Identify educational barriers",
     desc: "We consult with local families to understand their specific needs.",
   },
   {
-    step: "02",
-    num: "2",
+    num: "02",
     title: "Collaborate",
     desc: "We work with students, families and teachers to build a support plan.",
   },
   {
-    step: "03",
-    num: "3",
+    num: "03",
     title: "Deliver support",
     desc: "Providing learning support, mentoring, and essential resources.",
   },
   {
-    step: "04",
-    num: "4",
+    num: "04",
     title: "Measure outcomes",
     desc: "Tracking participation, progress and outcomes for sustained impact.",
   }
@@ -39,78 +34,103 @@ const steps: PathwayStep[] = [
 
 export function PathwaySection() {
   return (
-    <section className="py-20 lg:py-28 bg-[#f2eee4] relative overflow-hidden">
-      <div className="container mx-auto px-4 text-center relative z-10 max-w-6xl">
+    <section className="py-24 sm:py-32 bg-[#121c19] text-white relative overflow-hidden">
+      {/* Background Accent Glows */}
+      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-brand-green/25 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-amber-600/15 rounded-full blur-3xl pointer-events-none" />
+
+      <div className="container mx-auto px-4 max-w-5xl relative z-10">
         
-        {/* Header */}
-        <span className="inline-block text-[10px] font-bold uppercase tracking-[0.2em] text-brand-clay mb-4 border-b border-brand-clay/30 pb-2">
-          How The Model Works
-        </span>
-        <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl mb-16 sm:mb-20 text-brand-green font-bold">
-          A simple, effective pathway
-        </h2>
+        {/* Section Header */}
+        <div className="text-center mb-20 sm:mb-28">
+          <span className="inline-block text-[11px] font-bold uppercase tracking-[0.25em] text-amber-400 mb-4 border-b border-amber-400/40 pb-2">
+            How The Model Works
+          </span>
+          <h2 className="font-serif text-3xl sm:text-5xl text-white font-bold">
+            A simple, effective pathway
+          </h2>
+        </div>
 
-        {/* Steps Container */}
-        <div className="relative">
+        {/* Snake Flow Roadmap */}
+        <div className="relative max-w-4xl mx-auto">
 
-          {/* Desktop Sketched Winding Roadway Path */}
-          <div className="hidden lg:block absolute top-[44px] left-[10%] right-[10%] h-24 pointer-events-none z-0">
+          {/* Desktop/Tablet Snake Curved Connecting Line */}
+          <div className="hidden sm:block absolute inset-0 pointer-events-none z-0">
             <svg
-              className="w-full h-full text-brand-clay/70"
-              viewBox="0 0 1000 100"
+              className="w-full h-full text-amber-500"
+              viewBox="0 0 800 850"
               fill="none"
               preserveAspectRatio="none"
             >
-              {/* Sketched / Winding Curved Path */}
+              {/* Snake Zig-Zag Pipe with rounded 90-degree corners */}
               <path
-                d="M 125,50 C 250,5 375,95 500,50 C 625,5 750,95 875,50"
+                d="M 90 60
+                   L 90 140
+                   Q 90 180 130 180
+                   L 670 180
+                   Q 710 180 710 220
+                   L 710 290
+
+                   M 710 330
+                   L 710 410
+                   Q 710 450 670 450
+                   L 130 450
+                   Q 90 450 90 490
+                   L 90 560
+
+                   M 90 600
+                   L 90 680
+                   Q 90 720 130 720
+                   L 670 720
+                   Q 710 720 710 760
+                   L 710 810"
                 stroke="currentColor"
-                strokeWidth="3.5"
-                strokeDasharray="9 9"
+                strokeWidth="4"
                 strokeLinecap="round"
+                className="drop-shadow-[0_0_12px_rgba(245,158,11,0.7)]"
               />
-              {/* Waypoint Direction Dots */}
-              <circle cx="312" cy="30" r="4.5" fill="#0C5B48" />
-              <circle cx="687" cy="70" r="4.5" fill="#0C5B48" />
             </svg>
           </div>
 
-          {/* Mobile / Tablet Vertical Sketched Roadway Path */}
-          <div className="block lg:hidden absolute top-12 bottom-12 left-1/2 -translate-x-1/2 w-0.5 border-l-2 border-dashed border-brand-clay/60 pointer-events-none z-0" />
+          {/* Mobile Vertical Connecting Line */}
+          <div className="block sm:hidden absolute top-8 bottom-8 left-8 w-1 bg-amber-500 shadow-[0_0_10px_rgba(245,158,11,0.6)] z-0" />
 
-          {/* Steps Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-6 relative z-10">
-            {steps.map((item, idx) => (
-              <div
-                key={idx}
-                className="bg-[#f2eee4] px-3 flex flex-col items-center group transition-all duration-300"
-              >
-                {/* Step Circle Node */}
-                <div className="relative mb-6">
-                  <div className="w-24 h-24 bg-white rounded-full flex items-center justify-center shadow-md border-2 border-brand-sage/80 group-hover:border-brand-green group-hover:scale-110 group-hover:shadow-xl transition-all duration-300">
-                    <span className="font-serif text-3xl font-bold text-brand-green">
+          {/* Step Items */}
+          <div className="space-y-20 sm:space-y-36 relative z-10">
+            {steps.map((item, idx) => {
+              const isEven = idx % 2 === 1; // 01 (left), 02 (right), 03 (left), 04 (right)
+
+              return (
+                <div
+                  key={idx}
+                  className={cn(
+                    "flex flex-col sm:flex-row items-start sm:items-center gap-6 sm:gap-12",
+                    isEven ? "sm:flex-row-reverse sm:text-right" : "sm:flex-row sm:text-left"
+                  )}
+                >
+                  {/* Glowing Number Circle Badge */}
+                  <div className={cn("relative shrink-0", isEven ? "sm:mr-0" : "sm:ml-0")}>
+                    <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-[#1a2925] border-2 border-amber-400 flex items-center justify-center font-serif text-xl sm:text-2xl font-bold text-white shadow-[0_0_22px_rgba(245,158,11,0.5)] ring-4 ring-amber-400/20 transition-all duration-300 hover:scale-110">
                       {item.num}
-                    </span>
+                    </div>
                   </div>
-                  
-                  {/* Step Label Badge */}
-                  <span className="absolute -top-2 left-1/2 -translate-x-1/2 bg-brand-clay text-white text-[9px] uppercase font-bold tracking-widest px-3 py-0.5 rounded-full shadow-sm whitespace-nowrap">
-                    Step {item.num}
-                  </span>
-                </div>
 
-                {/* Text Content */}
-                <h3 className="font-serif text-xl mb-3 text-brand-charcoal font-bold group-hover:text-brand-green transition-colors">
-                  {item.title}
-                </h3>
-                <p className="text-xs text-brand-charcoal/75 leading-relaxed max-w-xs mx-auto">
-                  {item.desc}
-                </p>
-              </div>
-            ))}
+                  {/* Text Details */}
+                  <div className="max-w-md">
+                    <h3 className="font-serif text-2xl sm:text-3xl text-white font-bold mb-3 tracking-wide">
+                      {item.title}
+                    </h3>
+                    <p className="text-sm sm:text-base text-gray-300 leading-relaxed font-light">
+                      {item.desc}
+                    </p>
+                  </div>
+                </div>
+              );
+            })}
           </div>
 
         </div>
+
       </div>
     </section>
   );
