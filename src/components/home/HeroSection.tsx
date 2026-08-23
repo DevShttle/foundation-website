@@ -7,7 +7,7 @@ import Image from "next/image";
 
 const slides = [
   {
-    eyebrow: "Islah Foundation | Kishanganj, Bihar",
+    eyebrow: "Islah Foundation, Kishanganj, Bihar",
     headline: "Education with knowledge, character and purpose",
     supporting: "We help underserved students access quality education, mentoring, essential learning resources and values-based development.",
     primaryBtn: { label: "Explore Our Work", href: "/what-we-do" },

@@ -18,7 +18,7 @@ export function UpdatesSection() {
   return (
     <section className="py-12 lg:py-16 bg-white overflow-hidden">
       <div className="container mx-auto px-4">
-        
+
         {/* Header */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-8">
           <div className="max-w-2xl">
@@ -44,7 +44,7 @@ export function UpdatesSection() {
               <div className="flex items-center gap-3 text-[10px] uppercase font-bold tracking-widest mb-3">
                 <span className="text-brand-clay">{update.category}</span>
                 <span className="w-1 h-1 rounded-full bg-gray-300" />
-                <span className="text-gray-500 flex items-center gap-1.5"><Calendar size={12}/> {update.date}</span>
+                <span className="text-gray-500 flex items-center gap-1.5"><Calendar size={12} /> {update.date}</span>
               </div>
               <h3 className="font-serif text-2xl text-brand-green mb-3 leading-snug group-hover:text-brand-clay transition-colors">
                 <Link href={`/news-resources/${update.slug}`}>{update.title}</Link>
@@ -61,7 +61,7 @@ export function UpdatesSection() {
 
         {/* Mobile View: 3D Coverflow Swappable Carousel */}
         <div className="block md:hidden relative px-2 overflow-hidden max-w-full">
-          
+
           {/* Controls */}
           <button
             aria-label="Previous Update"
@@ -69,7 +69,7 @@ export function UpdatesSection() {
           >
             <ChevronLeft size={20} />
           </button>
-          
+
           <button
             aria-label="Next Update"
             className="updates-next absolute right-0 top-1/2 -translate-y-1/2 z-40 w-10 h-10 rounded-full bg-white/90 shadow-md border border-brand-sage/60 flex items-center justify-center text-brand-green hover:bg-brand-green hover:text-white transition-all backdrop-blur-sm"
@@ -110,7 +110,7 @@ export function UpdatesSection() {
                   >
                     <div className="flex items-center gap-2 text-[10px] uppercase font-bold tracking-widest mb-3">
                       <span className="text-brand-clay bg-brand-sage/50 px-2 py-0.5 rounded">{update.category}</span>
-                      <span className="text-gray-500 flex items-center gap-1"><Calendar size={11}/> {update.date}</span>
+                      <span className="text-gray-500 flex items-center gap-1"><Calendar size={11} /> {update.date}</span>
                     </div>
                     <h3 className="font-serif text-xl text-brand-green mb-3 leading-snug font-bold">
                       <Link href={`/news-resources/${update.slug}`}>{update.title}</Link>
