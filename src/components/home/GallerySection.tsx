@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Maximize2 } from "lucide-react";
+import { Maximize2, X, ArrowLeft, ArrowRight } from "lucide-react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectCoverflow, Pagination } from "swiper/modules";
 import "swiper/css";
@@ -263,6 +263,38 @@ export function GallerySection() {
           </Link>
         </div>
       </div>
+
+      {/* Lightbox Modal */}
+      {selectedImageIndex !== null && (
+        <div className="fixed inset-0 z-[100] bg-black/95 flex items-center justify-center p-4 backdrop-blur-md">
+          <button onClick={() => setSelectedImageIndex(null)} className="absolute top-6 right-6 z-50 text-white/70 hover:text-white transition-colors">
+            <X size={32} />
+          </button>
+          
+          <button onClick={(e) => { e.stopPropagation(); handlePrev(); }} className="absolute left-2 md:left-10 z-50 text-white/50 hover:text-white transition-colors">
+            <ArrowLeft size={40} />
+          </button>
+
+          <div className="relative w-full max-w-5xl h-[60vh] md:h-[80vh] flex flex-col items-center justify-center" onClick={(e) => e.stopPropagation()}>
+            <div className="relative w-full h-full">
+              <Image
+                src={filteredImages[selectedImageIndex].src}
+                alt={filteredImages[selectedImageIndex].title}
+                fill
+                className="object-contain"
+              />
+            </div>
+            <div className="mt-6 text-center text-white">
+              <h3 className="text-xl md:text-3xl font-serif">{filteredImages[selectedImageIndex].title}</h3>
+              <p className="text-xs md:text-sm text-brand-gold uppercase tracking-[0.2em] mt-2 font-bold">{filteredImages[selectedImageIndex].category}</p>
+            </div>
+          </div>
+
+          <button onClick={(e) => { e.stopPropagation(); handleNext(); }} className="absolute right-2 md:right-10 z-50 text-white/50 hover:text-white transition-colors">
+            <ArrowRight size={40} />
+          </button>
+        </div>
+      )}
     </section>
   );
 }
