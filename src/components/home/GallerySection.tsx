@@ -188,31 +188,79 @@ export function GallerySection() {
           </div>
         </div>
 
-        <div className="hidden md:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 auto-rows-[250px]">
-          {visibleImages.map((img, idx) => (
-            <div
-              key={img.id}
-              onClick={() => setSelectedImageIndex(idx)}
-              className={`bg-brand-sage rounded-xl relative overflow-hidden group cursor-pointer ${img.size}`}
-            >
-              <Image
-                src={img.src}
-                alt={img.title}
-                fill
-                className="object-cover transition-transform duration-700 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-brand-charcoal/90 via-brand-charcoal/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity z-10" />
-              <div className="absolute top-4 right-4 z-20 opacity-0 group-hover:opacity-100 transition-opacity bg-black/40 backdrop-blur-md p-2 rounded-full text-white">
-                <Maximize2 size={16} />
-              </div>
-              <div className="absolute bottom-6 left-6 z-20 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
-                <span className="text-[9px] uppercase tracking-widest font-bold text-white bg-brand-green/80 px-2 py-1 rounded mb-2 inline-block backdrop-blur-sm">
-                  {img.category}
-                </span>
-                <h4 className="font-serif text-xl text-white">{img.title}</h4>
-              </div>
-            </div>
-          ))}
+        {/* Desktop View: 2-Pic 3D Coverflow Carousel */}
+        <div className="hidden md:block relative px-10 py-4">
+          
+          <button
+            aria-label="Previous Photo"
+            className="gallery-desk-prev absolute -left-3 top-1/2 -translate-y-1/2 z-40 w-12 h-12 rounded-full bg-white/90 shadow-xl border border-brand-sage/60 flex items-center justify-center text-brand-green hover:bg-brand-green hover:text-white transition-all backdrop-blur-md"
+          >
+            <ChevronLeft size={24} />
+          </button>
+          
+          <button
+            aria-label="Next Photo"
+            className="gallery-desk-next absolute -right-3 top-1/2 -translate-y-1/2 z-40 w-12 h-12 rounded-full bg-white/90 shadow-xl border border-brand-sage/60 flex items-center justify-center text-brand-green hover:bg-brand-green hover:text-white transition-all backdrop-blur-md"
+          >
+            <ChevronRight size={24} />
+          </button>
+
+          <Swiper
+            effect={"coverflow"}
+            grabCursor={true}
+            centeredSlides={false}
+            initialSlide={0}
+            loop={true}
+            slidesPerView={2.2}
+            spaceBetween={24}
+            coverflowEffect={{
+              rotate: 0,
+              stretch: 0,
+              depth: 120,
+              modifier: 1.5,
+              slideShadows: false,
+            }}
+            pagination={{ clickable: true, el: ".gallery-desk-pagination" }}
+            navigation={{ prevEl: ".gallery-desk-prev", nextEl: ".gallery-desk-next" }}
+            autoplay={{ delay: 4000, disableOnInteraction: false, pauseOnMouseEnter: true }}
+            modules={[EffectCoverflow, Pagination, Navigation, Autoplay]}
+            className="w-full py-6 !overflow-visible"
+          >
+            {visibleImages.map((img, idx) => (
+              <SwiperSlide key={img.id} className="transition-all duration-500 py-2">
+                {({ isActive, isNext }) => (
+                  <div
+                    onClick={() => setSelectedImageIndex(idx)}
+                    className={cn(
+                      "rounded-2xl relative overflow-hidden cursor-pointer transition-all duration-500 w-full h-[380px] select-none flex flex-col justify-end p-8 border group",
+                      isActive || isNext
+                        ? "scale-100 opacity-100 shadow-2xl border-brand-green/40 ring-4 ring-brand-green/10 z-30 filter-none"
+                        : "scale-90 opacity-40 blur-[2px] shadow-sm border-gray-200 z-10 grayscale-[20%]"
+                    )}
+                  >
+                    <Image
+                      src={img.src}
+                      alt={img.title}
+                      fill
+                      className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-brand-charcoal/90 via-brand-charcoal/30 to-transparent opacity-75 group-hover:opacity-85 transition-opacity z-10" />
+                    <div className="absolute top-5 right-5 z-20 bg-black/40 backdrop-blur-md p-2.5 rounded-full text-white opacity-0 group-hover:opacity-100 transition-opacity">
+                      <Maximize2 size={18} />
+                    </div>
+                    <div className="relative z-20 transition-all duration-300">
+                      <span className="text-[10px] uppercase tracking-widest font-bold text-white bg-brand-green/90 px-3 py-1 rounded mb-3 inline-block backdrop-blur-sm shadow-md">
+                        {img.category}
+                      </span>
+                      <h4 className="font-serif text-2xl text-white font-bold">{img.title}</h4>
+                    </div>
+                  </div>
+                )}
+              </SwiperSlide>
+            ))}
+          </Swiper>
+
+          <div className="gallery-desk-pagination flex justify-center gap-2 mt-6" />
         </div>
 
         {/* Mobile View: 3D Coverflow Circular Swappable Carousel */}
