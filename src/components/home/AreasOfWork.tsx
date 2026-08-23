@@ -12,10 +12,10 @@ const areas = [
 
 export function AreasOfWork() {
   return (
-    <section className="py-24 bg-white">
+    <section className="py-12 lg:py-16 bg-white">
       <div className="container mx-auto px-4">
         
-        <div className="mb-16">
+        <div className="mb-8 sm:mb-10">
           <span className="inline-block text-[10px] font-bold uppercase tracking-[0.2em] text-brand-clay mb-4 border-b border-brand-clay/30 pb-2">
             Areas of Work
           </span>

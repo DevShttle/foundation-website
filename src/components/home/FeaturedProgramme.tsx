@@ -7,7 +7,7 @@ import { ArrowRight, Target, MapPin, Activity, HeartHandshake, Sparkles } from "
 
 export function FeaturedProgramme() {
   return (
-    <section className="py-20 lg:py-28 bg-[#0C5B48] text-white relative overflow-hidden">
+    <section className="py-12 lg:py-16 bg-[#0C5B48] text-white relative overflow-hidden">
       {/* Ambient background glows */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-gold/10 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-brand-sage/10 rounded-full blur-3xl pointer-events-none" />

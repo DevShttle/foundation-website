@@ -3,7 +3,7 @@ import { MapPin } from "lucide-react";
 
 export function MapSection() {
   return (
-    <section className="py-24 bg-white border-t border-gray-100">
+    <section className="py-12 lg:py-16 bg-white border-t border-gray-100">
       <div className="container mx-auto px-4">
         
         <div className="flex flex-col lg:flex-row items-center gap-16">

@@ -12,9 +12,9 @@ export function ValuesSection() {
   ];
 
   return (
-    <section className="py-24 bg-[#f2eee4]">
+    <section className="py-12 lg:py-16 bg-[#f2eee4]">
       <div className="container mx-auto px-4">
-        <div className="flex flex-col lg:flex-row justify-between items-end gap-8 mb-16">
+        <div className="flex flex-col lg:flex-row justify-between items-end gap-8 mb-8 sm:mb-10">
           <div className="max-w-2xl">
             <span className="inline-block text-[10px] font-bold uppercase tracking-[0.2em] text-brand-clay mb-4 border-b border-brand-clay/30 pb-2">
               Vision, Mission & Values

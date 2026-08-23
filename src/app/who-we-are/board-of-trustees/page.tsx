@@ -45,7 +45,7 @@ const trustees: Trustee[] = [
     role: "Secretary",
     badge: "Secretary",
     bio: "Managing organizational operations, community outreach, and the daily administration of educational programs.",
-    image: "/images/team/trustee-2.jpg"
+    image: "/images/team/trustee-2.png"
   },
   {
     id: "b4",
@@ -53,7 +53,7 @@ const trustees: Trustee[] = [
     role: "Trustee",
     badge: "Trustee",
     bio: "Providing guidance on educational standards and community relations.",
-    image: "/images/team/trustee-5.jpg"
+    image: "/images/team/trustee-4.png"
   },
   {
     id: "b5",
@@ -69,7 +69,7 @@ export default function BoardOfTrusteesPage() {
   return (
     <div className="py-20 lg:py-24 bg-brand-ivory min-h-screen overflow-hidden">
       <div className="container mx-auto px-4 max-w-6xl">
-        
+
         {/* Header */}
         <div className="text-center mb-12 sm:mb-16">
           <span className="inline-block text-[10px] font-bold uppercase tracking-[0.2em] text-brand-clay mb-4 border-b border-brand-clay/30 pb-2">
@@ -85,7 +85,7 @@ export default function BoardOfTrusteesPage() {
 
         {/* 3D Circular Coverflow Slider */}
         <div className="relative px-2 sm:px-8 overflow-hidden max-w-full">
-          
+
           {/* Custom Navigation Arrows */}
           <button
             aria-label="Previous Trustee"
@@ -93,7 +93,7 @@ export default function BoardOfTrusteesPage() {
           >
             <ChevronLeft className="w-6 h-6" />
           </button>
-          
+
           <button
             aria-label="Next Trustee"
             className="trustee-next absolute right-0 top-1/2 -translate-y-1/2 z-40 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white/90 shadow-lg border border-brand-sage/60 flex items-center justify-center text-brand-green hover:bg-brand-green hover:text-white transition-all duration-300 backdrop-blur-md"

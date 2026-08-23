@@ -16,11 +16,11 @@ import "swiper/css/navigation";
 
 export function UpdatesSection() {
   return (
-    <section className="py-20 lg:py-24 bg-white overflow-hidden">
+    <section className="py-12 lg:py-16 bg-white overflow-hidden">
       <div className="container mx-auto px-4">
         
         {/* Header */}
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-12 sm:mb-16">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-8">
           <div className="max-w-2xl">
             <span className="inline-block text-[10px] font-bold uppercase tracking-[0.2em] text-brand-clay mb-4 border-b border-brand-clay/30 pb-2">
               Latest Updates

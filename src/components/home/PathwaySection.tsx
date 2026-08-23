@@ -34,12 +34,12 @@ const steps: PathwayStep[] = [
 
 export function PathwaySection() {
   return (
-    <section className="py-16 sm:py-24 lg:py-28 bg-[#f2eee4] relative overflow-hidden">
+    <section className="py-12 lg:py-16 bg-[#f2eee4] relative overflow-hidden">
       <div className="container mx-auto px-4 max-w-5xl relative z-10">
         
         {/* Header */}
-        <div className="text-center mb-12 sm:mb-20 lg:mb-24">
-          <span className="inline-block text-[10px] font-bold uppercase tracking-[0.2em] text-brand-clay mb-3 border-b border-brand-clay/30 pb-2">
+        <div className="text-center mb-8 sm:mb-12">
+          <span className="inline-block text-[10px] font-bold uppercase tracking-[0.2em] text-brand-clay mb-2 border-b border-brand-clay/30 pb-1.5">
             How The Model Works
           </span>
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-brand-green font-bold">
@@ -54,32 +54,32 @@ export function PathwaySection() {
           <div className="hidden sm:block absolute inset-0 pointer-events-none z-0">
             <svg
               className="w-full h-full text-brand-green"
-              viewBox="0 0 800 760"
+              viewBox="0 0 800 500"
               fill="none"
               preserveAspectRatio="none"
             >
               {/* Rounded 90-degree S-curve Snake Path */}
               <path
-                d="M 60 40
-                   L 60 115
-                   Q 60 145 90 145
-                   L 710 145
-                   Q 740 145 740 175
-                   L 740 250
+                d="M 60 30
+                   L 60 85
+                   Q 60 110 85 110
+                   L 715 110
+                   Q 740 110 740 135
+                   L 740 180
 
-                   M 740 250
-                   L 740 325
-                   Q 740 355 710 355
-                   L 90 355
-                   Q 60 355 60 385
-                   L 60 460
+                   M 740 180
+                   L 740 235
+                   Q 740 260 715 260
+                   L 85 260
+                   Q 60 260 60 285
+                   L 60 330
 
-                   M 60 460
-                   L 60 535
-                   Q 60 565 90 565
-                   L 710 565
-                   Q 740 565 740 595
-                   L 740 670"
+                   M 60 330
+                   L 60 385
+                   Q 60 410 85 410
+                   L 715 410
+                   Q 740 410 740 435
+                   L 740 480"
                 stroke="currentColor"
                 strokeWidth="3.5"
                 strokeDasharray="7 7"
@@ -94,7 +94,7 @@ export function PathwaySection() {
           <div className="block sm:hidden absolute top-7 bottom-7 left-6 w-0.5 border-l-2 border-dashed border-brand-green/60 pointer-events-none z-0" />
 
           {/* Step Items */}
-          <div className="space-y-10 sm:space-y-28 lg:space-y-32 relative z-10">
+          <div className="space-y-8 sm:space-y-16 relative z-10">
             {steps.map((item, idx) => {
               const isEven = idx % 2 === 1; // 01 (left), 02 (right), 03 (left), 04 (right)
 

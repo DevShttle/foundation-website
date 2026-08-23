@@ -5,7 +5,7 @@ import { CheckCircle2, ArrowRight } from "lucide-react";
 
 export function IntroSection() {
   return (
-    <section className="py-24 lg:py-32 bg-brand-ivory overflow-hidden">
+    <section className="py-12 lg:py-16 bg-brand-ivory overflow-hidden">
       <div className="container mx-auto px-4">
         <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-center">
 
