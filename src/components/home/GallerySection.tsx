@@ -189,7 +189,7 @@ export function GallerySection() {
         </div>
 
         {/* Desktop View: 2-Pic 3D Coverflow Carousel */}
-        <div className="hidden md:block relative px-10 py-4">
+        <div className="hidden md:block relative px-10 py-4 overflow-hidden max-w-full">
           
           <button
             aria-label="Previous Photo"
@@ -224,7 +224,7 @@ export function GallerySection() {
             navigation={{ prevEl: ".gallery-desk-prev", nextEl: ".gallery-desk-next" }}
             autoplay={{ delay: 4000, disableOnInteraction: false, pauseOnMouseEnter: true }}
             modules={[EffectCoverflow, Pagination, Navigation, Autoplay]}
-            className="w-full py-6 !overflow-visible"
+            className="w-full py-6 overflow-hidden"
           >
             {visibleImages.map((img, idx) => (
               <SwiperSlide key={img.id} className="transition-all duration-500 py-2">
@@ -264,7 +264,7 @@ export function GallerySection() {
         </div>
 
         {/* Mobile View: 3D Coverflow Circular Swappable Carousel */}
-        <div className="block md:hidden relative px-2 py-4">
+        <div className="block md:hidden relative px-2 py-4 overflow-hidden max-w-full">
           <button
             aria-label="Previous Photo"
             className="gallery-prev absolute left-0 top-1/2 -translate-y-1/2 z-40 w-10 h-10 rounded-full bg-white/90 shadow-md border border-brand-sage/60 flex items-center justify-center text-brand-green hover:bg-brand-green hover:text-white transition-all backdrop-blur-sm"
@@ -297,7 +297,7 @@ export function GallerySection() {
             navigation={{ prevEl: ".gallery-prev", nextEl: ".gallery-next" }}
             autoplay={{ delay: 4000, disableOnInteraction: false, pauseOnMouseEnter: true }}
             modules={[EffectCoverflow, Pagination, Navigation, Autoplay]}
-            className="w-full py-6 !overflow-visible"
+            className="w-full py-6 overflow-hidden"
           >
             {visibleImages.map((img, idx) => (
               <SwiperSlide key={img.id} className="transition-all duration-500 py-2">

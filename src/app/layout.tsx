@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Manrope, DM_Serif_Display } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/shared/Header";
@@ -16,6 +16,13 @@ const dmSerif = DM_Serif_Display({
   variable: "--font-dm-serif",
 });
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+};
+
 export const metadata: Metadata = {
   title: "Islah Foundation | Education and Community Development in Kishanganj",
   description:
@@ -32,10 +39,10 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${manrope.variable} ${dmSerif.variable}`}>
-      <body className="antialiased font-sans bg-brand-ivory text-brand-charcoal min-h-screen flex flex-col">
+    <html lang="en" className={`${manrope.variable} ${dmSerif.variable} overflow-x-hidden w-full max-w-full`}>
+      <body className="antialiased font-sans bg-brand-ivory text-brand-charcoal min-h-screen flex flex-col overflow-x-hidden w-full max-w-full">
         <Header />
-        <main className="flex-1 flex flex-col">
+        <main className="flex-1 flex flex-col w-full max-w-full overflow-x-hidden">
           {children}
         </main>
         <Footer />

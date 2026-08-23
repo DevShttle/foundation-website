@@ -70,7 +70,7 @@ export function StoriesSection() {
         </div>
 
         {/* Mobile View: 3D Coverflow Swappable Carousel */}
-        <div className="block md:hidden relative px-2">
+        <div className="block md:hidden relative px-2 overflow-hidden max-w-full">
           
           {/* Controls */}
           <button
@@ -105,7 +105,7 @@ export function StoriesSection() {
             navigation={{ prevEl: ".stories-prev", nextEl: ".stories-next" }}
             autoplay={{ delay: 4000, disableOnInteraction: false, pauseOnMouseEnter: true }}
             modules={[EffectCoverflow, Pagination, Navigation, Autoplay]}
-            className="w-full py-8 !overflow-visible"
+            className="w-full py-8 overflow-hidden"
           >
             {stories.map((story) => (
               <SwiperSlide key={story.id} className="transition-all duration-500 py-2">

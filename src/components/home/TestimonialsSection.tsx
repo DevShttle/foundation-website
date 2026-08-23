@@ -49,7 +49,7 @@ export function TestimonialsSection() {
         </div>
 
         {/* Mobile View: 3D Coverflow Swappable Carousel */}
-        <div className="block md:hidden relative px-2">
+        <div className="block md:hidden relative px-2 overflow-hidden max-w-full">
           
           {/* Controls */}
           <button
@@ -84,7 +84,7 @@ export function TestimonialsSection() {
             navigation={{ prevEl: ".testimonial-prev", nextEl: ".testimonial-next" }}
             autoplay={{ delay: 4500, disableOnInteraction: false, pauseOnMouseEnter: true }}
             modules={[EffectCoverflow, Pagination, Navigation, Autoplay]}
-            className="w-full py-8 !overflow-visible"
+            className="w-full py-8 overflow-hidden"
           >
             {testimonials.map((testimonial) => (
               <SwiperSlide key={testimonial.id} className="transition-all duration-500 py-2">

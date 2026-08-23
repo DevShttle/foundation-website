@@ -84,7 +84,7 @@ export default function BoardOfTrusteesPage() {
         </div>
 
         {/* 3D Circular Coverflow Slider */}
-        <div className="relative px-2 sm:px-8">
+        <div className="relative px-2 sm:px-8 overflow-hidden max-w-full">
           
           {/* Custom Navigation Arrows */}
           <button
@@ -135,7 +135,7 @@ export default function BoardOfTrusteesPage() {
               disableOnInteraction: false,
               pauseOnMouseEnter: true
             }}
-            className="w-full py-10 !overflow-visible"
+            className="w-full py-10 overflow-hidden"
           >
             {trustees.map((member) => (
               <SwiperSlide key={member.id} className="transition-all duration-500 py-4">

@@ -60,7 +60,7 @@ export function UpdatesSection() {
         </div>
 
         {/* Mobile View: 3D Coverflow Swappable Carousel */}
-        <div className="block md:hidden relative px-2">
+        <div className="block md:hidden relative px-2 overflow-hidden max-w-full">
           
           {/* Controls */}
           <button
@@ -95,7 +95,7 @@ export function UpdatesSection() {
             navigation={{ prevEl: ".updates-prev", nextEl: ".updates-next" }}
             autoplay={{ delay: 4500, disableOnInteraction: false, pauseOnMouseEnter: true }}
             modules={[EffectCoverflow, Pagination, Navigation, Autoplay]}
-            className="w-full py-8 !overflow-visible"
+            className="w-full py-8 overflow-hidden"
           >
             {updates.slice(0, 5).map((update) => (
               <SwiperSlide key={update.id} className="transition-all duration-500 py-2">
