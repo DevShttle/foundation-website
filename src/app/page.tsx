@@ -7,6 +7,7 @@ import { IntroSection } from "@/components/home/IntroSection";
 import { ValuesSection } from "@/components/home/ValuesSection";
 import { AreasOfWork } from "@/components/home/AreasOfWork";
 import { ImpactSection } from "@/components/home/ImpactSection";
+import { PathwaySection } from "@/components/home/PathwaySection";
 import { VolunteerCTA } from "@/components/home/VolunteerCTA";
 import { StoriesSection } from "@/components/home/StoriesSection";
 import { MapSection } from "@/components/home/MapSection";
@@ -80,34 +81,7 @@ export default function Home() {
 
       <ImpactSection />
 
-      {/* Pathway Model Inline */}
-      <section className="py-24 bg-[#f2eee4]">
-        <div className="container mx-auto px-4 text-center">
-          <span className="inline-block text-[10px] font-bold uppercase tracking-[0.2em] text-brand-clay mb-4 border-b border-brand-clay/30 pb-2">
-            How The Model Works
-          </span>
-          <h2 className="font-serif text-4xl mb-16 text-brand-green">A simple, effective pathway</h2>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 relative">
-            <div className="hidden lg:block absolute top-12 left-[12%] right-[12%] border-t border-dashed border-[#90a19a]" />
-            {[
-              { step: "1", title: "Identify educational barriers", desc: "We consult with local families to understand their specific needs." },
-              { step: "2", title: "Collaborate", desc: "We work with students, families and teachers to build a support plan." },
-              { step: "3", title: "Deliver support", desc: "Providing learning support, mentoring, and essential resources." },
-              { step: "4", title: "Measure outcomes", desc: "Tracking participation, progress and outcomes for sustained impact." },
-            ].map((item, idx) => (
-              <div key={idx} className="relative z-10 bg-[#f2eee4] px-4">
-                <span className="absolute top-0 right-[20%] text-[10px] text-brand-clay font-bold">Step {item.step}</span>
-                <div className="w-24 h-24 mx-auto bg-white rounded-full flex items-center justify-center text-brand-green font-serif text-3xl shadow-sm mb-6">
-                  {item.step}
-                </div>
-                <h3 className="font-serif text-xl mb-3 text-brand-charcoal">{item.title}</h3>
-                <p className="text-xs text-brand-charcoal/70 leading-relaxed">{item.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <PathwaySection />
 
       <VolunteerCTA />
 
