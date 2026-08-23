@@ -7,17 +7,18 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-[#062d25] text-[#a9c0b9] pt-20 pb-8 mt-auto">
+    <footer className="bg-[#062d25] text-[#a9c0b9] pt-8 sm:pt-16 lg:pt-20 pb-8 mt-auto">
       <div className="container mx-auto px-4">
         {/* Top Footer Grid: 2 columns on mobile, 3 on tablet, 5 on desktop */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8 sm:gap-10 lg:gap-8 mb-16">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8 sm:gap-10 lg:gap-8 mb-12 sm:mb-16">
 
           {/* Column 1: Brand */}
           <div className="col-span-2 sm:col-span-1 lg:col-span-1 flex flex-col gap-4">
             <Link href="/" className="flex items-center gap-3 text-white group w-fit hover:opacity-80 transition-opacity">
-              <div className="bg-white p-2 rounded-lg inline-flex">
-                <Image src="/images/logo.png" alt="Islah Foundation" width={150} height={150} className="w-auto h-20 scale-[1.8] object-contain origin-left" />
+              <div className="bg-white px-3 py-1.5 rounded-xl inline-flex items-center justify-center shadow-md">
+                <Image src="/images/logo.png" alt="Islah Foundation" width={140} height={50} className="w-auto h-10 sm:h-12 object-contain" />
               </div>
+              <span className="font-serif text-lg sm:text-xl font-bold text-white tracking-wide">Islah Foundation</span>
             </Link>
             <p className="text-xs sm:text-sm leading-relaxed">
               Empowering underserved students and communities through education, mentoring, and values-based development.
