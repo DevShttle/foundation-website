@@ -14,7 +14,7 @@ import "swiper/css/navigation";
 
 export function TestimonialsSection() {
   return (
-    <section className="py-12 lg:py-16 bg-brand-ivory overflow-hidden">
+    <section className="py-6 md:py-12 lg:py-16 bg-brand-ivory overflow-hidden">
       <div className="container mx-auto px-4 text-center mb-8">
         <span className="inline-block text-[10px] font-bold uppercase tracking-[0.2em] text-brand-clay mb-4 border-b border-brand-clay/30 pb-2">
           Community Voices

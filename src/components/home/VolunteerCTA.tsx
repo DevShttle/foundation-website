@@ -4,7 +4,7 @@ import { HandHeart, ArrowRight } from "lucide-react";
 
 export function VolunteerCTA() {
   return (
-    <section className="bg-brand-clay text-white py-12 lg:py-16 relative overflow-hidden">
+    <section className="bg-brand-clay text-white py-6 md:py-12 lg:py-16 relative overflow-hidden">
       {/* Decorative Background */}
       <div className="absolute inset-0 opacity-10 pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '40px 40px' }} />
       

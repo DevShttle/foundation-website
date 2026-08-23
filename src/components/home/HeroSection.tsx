@@ -40,7 +40,7 @@ export function HeroSection() {
   }, []);
 
   return (
-    <section className="relative bg-brand-green text-white min-h-[600px] lg:min-h-[700px] flex items-center overflow-hidden">
+    <section className="relative bg-brand-green text-white min-h-0 sm:min-h-[500px] md:min-h-[600px] lg:min-h-[700px] flex items-center overflow-hidden">
       {/* Background Image */}
       <Image 
         src="/images/hero/hero-bg.jpeg" 
@@ -53,7 +53,7 @@ export function HeroSection() {
       {/* Pattern Overlay */}
       <div className="absolute inset-0 opacity-10 pointer-events-none z-0" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '32px 32px' }} />
       
-      <div className="container mx-auto px-4 relative z-10 py-20">
+      <div className="container mx-auto px-4 relative z-10 py-8 sm:py-14 md:py-20">
         <div className="max-w-3xl">
           {slides.map((slide, idx) => (
             <div 
@@ -63,33 +63,33 @@ export function HeroSection() {
                 idx === currentSlide ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8 pointer-events-none"
               )}
             >
-              <div className="text-brand-gold font-bold text-xs uppercase tracking-[0.2em] mb-6 flex items-center gap-4">
+              <div className="text-brand-gold font-bold text-xs uppercase tracking-[0.2em] mb-3 sm:mb-6 flex items-center gap-4">
                 <span className="w-8 h-px bg-brand-gold block" />
                 {slide.eyebrow}
               </div>
-              <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl leading-[1.1] mb-8">
+              <h1 className="font-serif text-3xl md:text-6xl lg:text-7xl leading-[1.1] mb-4 sm:mb-8">
                 {slide.headline}
               </h1>
-              <p className="text-lg md:text-xl text-brand-sage leading-relaxed max-w-2xl mb-10">
+              <p className="text-sm md:text-xl text-brand-sage leading-relaxed max-w-2xl mb-6 sm:mb-10">
                 {slide.supporting}
               </p>
-              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-5">
-                <Link href={slide.primaryBtn.href} className="bg-brand-gold text-white px-8 py-4 rounded font-bold uppercase tracking-widest text-xs hover:bg-[#a6822c] transition-colors flex items-center gap-2">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-5">
+                <Link href={slide.primaryBtn.href} className="bg-brand-gold text-white px-6 py-3 sm:px-8 sm:py-4 rounded font-bold uppercase tracking-widest text-[11px] sm:text-xs hover:bg-[#a6822c] transition-colors flex items-center gap-2">
                   {slide.primaryBtn.label} <ArrowRight size={16} />
                 </Link>
-                <Link href={slide.secondaryBtn.href} className="bg-transparent border border-white/30 text-white px-8 py-4 rounded font-bold uppercase tracking-widest text-xs hover:bg-white/10 transition-colors flex items-center gap-2">
+                <Link href={slide.secondaryBtn.href} className="bg-transparent border border-white/30 text-white px-6 py-3 sm:px-8 sm:py-4 rounded font-bold uppercase tracking-widest text-[11px] sm:text-xs hover:bg-white/10 transition-colors flex items-center gap-2">
                   <Heart size={16} /> {slide.secondaryBtn.label}
                 </Link>
               </div>
             </div>
           ))}
           
-          {/* Invisible placeholder to maintain height */}
-          <div className="opacity-0 pointer-events-none">
-             <div className="text-xs mb-6">Placeholder</div>
-             <h1 className="text-7xl mb-8">Education with knowledge, character and purpose</h1>
-             <p className="text-xl mb-10">We help underserved students access quality education, mentoring, essential learning resources and values-based development.</p>
-             <div className="h-12"></div>
+          {/* Responsive Invisible placeholder to maintain proper container height */}
+          <div className="opacity-0 pointer-events-none aria-hidden">
+             <div className="text-xs mb-3 sm:mb-6">Placeholder</div>
+             <h1 className="font-serif text-3xl md:text-6xl lg:text-7xl leading-[1.1] mb-4 sm:mb-8">Education with knowledge, character and purpose</h1>
+             <p className="text-sm md:text-xl leading-relaxed max-w-2xl mb-6 sm:mb-10">We help underserved students access quality education, mentoring, essential learning resources and values-based development.</p>
+             <div className="h-20 sm:h-12"></div>
           </div>
         </div>
       </div>

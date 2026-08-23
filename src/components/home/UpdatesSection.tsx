@@ -16,7 +16,7 @@ import "swiper/css/navigation";
 
 export function UpdatesSection() {
   return (
-    <section className="py-12 lg:py-16 bg-white overflow-hidden">
+    <section className="py-6 md:py-12 lg:py-16 bg-white overflow-hidden">
       <div className="container mx-auto px-4">
 
         {/* Header */}

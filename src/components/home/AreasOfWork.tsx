@@ -12,7 +12,7 @@ const areas = [
 
 export function AreasOfWork() {
   return (
-    <section className="py-12 lg:py-16 bg-white">
+    <section className="py-6 md:py-12 lg:py-16 bg-white">
       <div className="container mx-auto px-4">
         
         <div className="mb-8 sm:mb-10">

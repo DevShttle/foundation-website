@@ -34,7 +34,7 @@ const steps: PathwayStep[] = [
 
 export function PathwaySection() {
   return (
-    <section className="py-12 lg:py-16 bg-[#f2eee4] relative overflow-hidden">
+    <section className="py-6 md:py-12 lg:py-16 bg-[#f2eee4] relative overflow-hidden">
       <div className="container mx-auto px-4 max-w-5xl relative z-10">
         
         {/* Header */}

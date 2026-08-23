@@ -155,7 +155,7 @@ export function GallerySection() {
   }, [selectedImageIndex, filteredImages]);
 
   return (
-    <section className="py-12 lg:py-16 bg-[#fbf8f1] border-t border-gray-100">
+    <section className="py-6 md:py-12 lg:py-16 bg-[#fbf8f1] border-t border-gray-100">
       <div className="container mx-auto px-4">
 
         <div className="flex flex-col md:flex-row justify-between items-end gap-8 mb-8">

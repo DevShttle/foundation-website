@@ -39,7 +39,7 @@ function AnimatedCounter({ end, duration = 2000 }: { end: number; duration?: num
 
 export function ImpactSection() {
   return (
-    <section className="py-12 lg:py-16 bg-brand-charcoal text-white relative overflow-hidden">
+    <section className="py-6 md:py-12 lg:py-16 bg-brand-charcoal text-white relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute top-0 right-0 w-1/2 h-full bg-brand-green/20 rounded-l-[200px] pointer-events-none" />
       
