@@ -106,3 +106,59 @@ section {
   max-width: 100%;
   overflow-x: hidden;
 }
+
+/* Comprehensive Dark Mode Theme Overrides */
+.dark body {
+  background-color: #121a18 !important;
+  color: #f2f7f4 !important;
+}
+
+.dark .bg-brand-ivory,
+.dark .bg-\[\#fbf8f1\],
+.dark .bg-\[\#f2eee4\],
+.dark .bg-white {
+  background-color: #1a2522 !important;
+  color: #f0f5f2 !important;
+}
+
+.dark .bg-brand-sage,
+.dark .bg-brand-sage\/30,
+.dark .bg-brand-sage\/40,
+.dark .bg-brand-sage\/50,
+.dark .bg-brand-sage\/60,
+.dark .bg-brand-ivory\/50,
+.dark .bg-brand-ivory\/80 {
+  background-color: #24332f !important;
+  color: #e5ece8 !important;
+}
+
+.dark .text-brand-charcoal,
+.dark .text-gray-600,
+.dark .text-gray-700,
+.dark .text-gray-800 {
+  color: #e2ebe6 !important;
+}
+
+.dark .text-brand-charcoal\/70,
+.dark .text-brand-charcoal\/75,
+.dark .text-brand-charcoal\/80,
+.dark .text-brand-charcoal\/85,
+.dark .text-gray-500,
+.dark .text-gray-400 {
+  color: #b0c2b8 !important;
+}
+
+.dark .text-brand-green {
+  color: #52e098 !important;
+}
+
+.dark .border-gray-100,
+.dark .border-gray-200,
+.dark .border-brand-sage\/50,
+.dark .border-brand-green\/10 {
+  border-color: rgba(255, 255, 255, 0.12) !important;
+}
+
+.dark header {
+  background-color: rgba(22, 32, 29, 0.95) !important;
+}
