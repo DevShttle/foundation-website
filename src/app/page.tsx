@@ -26,7 +26,7 @@ export default function Home() {
       <IntroSection />
       <ValuesSection />
       <AreasOfWork />
-      
+
       {/* Featured Programme - Mocked inline for brevity */}
       <section className="py-24 bg-brand-green text-white">
         <div className="container mx-auto px-4">
@@ -37,7 +37,7 @@ export default function Home() {
               <p className="text-brand-sage leading-relaxed mb-8">
                 Addressing educational gaps by providing after-school academic support and essential learning resources to underserved students.
               </p>
-              
+
               <div className="grid grid-cols-2 gap-y-6 gap-x-4 border-t border-white/20 pt-8 mb-8">
                 <div>
                   <dt className="text-[9px] uppercase text-[#9bb8ae] tracking-widest mb-1">Target</dt>
@@ -63,23 +63,23 @@ export default function Home() {
                 </a>
               </div>
             </div>
-            
+
             <div className="bg-[#d9c388] rounded-tl-[200px] rounded-tr-[200px] rounded-bl-lg rounded-br-lg p-8 lg:p-16 h-[500px] flex flex-col justify-center items-center text-center">
-               <div className="bg-brand-ivory p-3 shadow-2xl rotate-3 w-full h-full relative overflow-hidden">
-                 <Image 
-                   src="/images/programmes/featured.png" 
-                   alt="Featured Programme" 
-                   fill 
-                   className="object-cover" 
-                 />
-               </div>
+              <div className="bg-brand-ivory p-3 shadow-2xl rotate-3 w-full h-full relative overflow-hidden">
+                <Image
+                  src="/images/programmes/featured.png"
+                  alt="Featured Programme"
+                  fill
+                  className="object-cover"
+                />
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       <ImpactSection />
-      
+
       {/* Pathway Model Inline */}
       <section className="py-24 bg-[#f2eee4]">
         <div className="container mx-auto px-4 text-center">
@@ -87,7 +87,7 @@ export default function Home() {
             How The Model Works
           </span>
           <h2 className="font-serif text-4xl mb-16 text-brand-green">A simple, effective pathway</h2>
-          
+
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 relative">
             <div className="hidden lg:block absolute top-12 left-[12%] right-[12%] border-t border-dashed border-[#90a19a]" />
             {[
@@ -110,7 +110,7 @@ export default function Home() {
       </section>
 
       <VolunteerCTA />
-      
+
       <StoriesSection />
       <MapSection />
       <TestimonialsSection />
