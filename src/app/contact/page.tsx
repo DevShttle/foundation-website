@@ -48,9 +48,9 @@ export default function ContactPage() {
   }
 
   return (
-    <div className="bg-[#f2eee4] min-h-screen pb-24">
+    <div className="bg-[#f2eee4] min-h-screen pb-12 lg:pb-16">
       {/* Hero */}
-      <section className="bg-brand-green text-white py-24 relative overflow-hidden">
+      <section className="bg-brand-green text-white py-12 lg:py-16 relative overflow-hidden">
         <Image src="/images/headers/header-contact.png" alt="Contact Us" fill className="object-cover z-0 opacity-30 mix-blend-luminosity" />
         <div className="absolute inset-0 bg-brand-green/40 z-0 pointer-events-none" />
         <div className="container mx-auto px-4 relative z-10 text-center">
@@ -66,7 +66,7 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <div className="container mx-auto px-4 mt-16 max-w-6xl">
+      <div className="container mx-auto px-4 mt-8 lg:mt-12 max-w-6xl">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
 
           {/* Contact Details */}

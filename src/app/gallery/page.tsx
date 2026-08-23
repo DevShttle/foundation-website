@@ -23,9 +23,9 @@ export default function GalleryPage() {
   ];
 
   return (
-    <div className="bg-[#fbf8f1] min-h-screen pb-24">
+    <div className="bg-[#fbf8f1] min-h-screen pb-12 lg:pb-16">
       {/* Hero */}
-      <section className="bg-brand-green text-white py-24 relative overflow-hidden">
+      <section className="bg-brand-green text-white py-12 lg:py-16 relative overflow-hidden">
         <Image src="/images/headers/header-news.png" alt="Gallery" fill className="object-cover z-0 opacity-30 mix-blend-luminosity" />
         <div className="container mx-auto px-4 relative z-10 text-center">
           <span className="inline-block text-[10px] font-bold uppercase tracking-[0.2em] text-brand-gold mb-6 border-b border-brand-gold/30 pb-2">
@@ -40,7 +40,7 @@ export default function GalleryPage() {
         </div>
       </section>
 
-      <div className="container mx-auto px-4 mt-16">
+      <div className="container mx-auto px-4 mt-8 lg:mt-12">
         <div className="mb-8">
           <Link href="/" className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-gray-500 hover:text-brand-green transition-colors">
             <ArrowLeft size={14} /> Back to Home

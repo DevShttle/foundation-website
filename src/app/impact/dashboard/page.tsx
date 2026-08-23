@@ -4,9 +4,9 @@ import { impactStats } from "@/lib/data";
 
 export default function ImpactDashboardPage() {
   return (
-    <div className="bg-brand-ivory min-h-screen pb-24">
+    <div className="bg-brand-ivory min-h-screen pb-12 lg:pb-16">
       {/* Hero */}
-      <section className="bg-brand-green text-white py-24 relative overflow-hidden">
+      <section className="bg-brand-green text-white py-12 lg:py-16 relative overflow-hidden">
         <Image src="/images/headers/header-impact.png" alt="Impact Dashboard" fill className="object-cover z-0 opacity-30 mix-blend-luminosity" />
         <div className="absolute top-0 right-0 w-1/2 h-full bg-brand-green/20 rounded-l-[200px] pointer-events-none z-0" />
         <div className="container mx-auto px-4 relative z-10 text-center">

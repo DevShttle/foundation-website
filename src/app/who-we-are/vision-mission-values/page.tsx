@@ -13,9 +13,9 @@ export default function VisionMissionValuesPage() {
   ];
 
   return (
-    <div className="bg-[#f2eee4] min-h-screen pb-24">
+    <div className="bg-[#f2eee4] min-h-screen pb-12 lg:pb-16">
       {/* Hero */}
-      <section className="bg-brand-green text-white py-24 lg:py-32 relative overflow-hidden">
+      <section className="bg-brand-green text-white py-12 lg:py-16 relative overflow-hidden">
         <Image src="/images/headers/header-who-we-are.png" alt="Vision Mission Values" fill className="object-cover z-0 opacity-30 mix-blend-luminosity" />
         <div className="absolute top-0 right-0 w-1/2 h-full bg-brand-gold/10 rounded-l-[200px] pointer-events-none z-0" />
         <div className="container mx-auto px-4 relative z-10 text-center">
@@ -31,7 +31,7 @@ export default function VisionMissionValuesPage() {
         </div>
       </section>
 
-      <div className="container mx-auto px-4 -mt-16 relative z-20 max-w-5xl">
+      <div className="container mx-auto px-4 -mt-8 lg:-mt-10 relative z-20 max-w-5xl">
         {/* Vision & Mission Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
           <div className="bg-brand-green text-white p-10 lg:p-16 rounded-xl shadow-xl flex flex-col justify-center min-h-[400px]">

@@ -67,7 +67,7 @@ const trustees: Trustee[] = [
 
 export default function BoardOfTrusteesPage() {
   return (
-    <div className="py-20 lg:py-24 bg-brand-ivory min-h-screen overflow-hidden">
+    <div className="py-12 lg:py-16 bg-brand-ivory min-h-screen overflow-hidden">
       <div className="container mx-auto px-4 max-w-6xl">
 
         {/* Header */}

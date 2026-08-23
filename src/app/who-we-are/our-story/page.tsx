@@ -6,9 +6,9 @@ import { ImageCarousel } from "@/components/ui/ImageCarousel";
 
 export default function OurStoryPage() {
   return (
-    <div className="bg-brand-ivory min-h-screen pb-24">
+    <div className="bg-brand-ivory min-h-screen pb-12 lg:pb-16">
       {/* Hero */}
-      <section className="bg-brand-green text-white py-24 lg:py-32 relative overflow-hidden">
+      <section className="bg-brand-green text-white py-12 lg:py-16 relative overflow-hidden">
         <Image src="/images/headers/header-who-we-are.png" alt="Our Story" fill className="object-cover z-0 opacity-30 mix-blend-luminosity" />
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl">
@@ -25,7 +25,7 @@ export default function OurStoryPage() {
         </div>
       </section>
 
-      <div className="container mx-auto px-4 mt-16 max-w-5xl">
+      <div className="container mx-auto px-4 mt-8 lg:mt-12 max-w-5xl">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
 
           {/* Main Content */}
