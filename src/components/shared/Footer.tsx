@@ -14,11 +14,17 @@ export function Footer() {
 
           {/* Column 1: Brand */}
           <div className="col-span-2 sm:col-span-1 lg:col-span-1 flex flex-col gap-4">
-            <Link href="/" className="flex items-center gap-3 text-white group w-fit hover:opacity-80 transition-opacity">
-              <div className="bg-white px-3 py-1.5 rounded-xl inline-flex items-center justify-center shadow-md">
-                <Image src="/images/logo.png" alt="Islah Foundation" width={140} height={50} className="w-auto h-10 sm:h-12 object-contain" />
+            <Link href="/" className="flex items-center gap-3.5 text-white group w-fit hover:opacity-80 transition-opacity">
+              <div className="bg-white p-2 rounded-xl inline-flex items-center justify-center shadow-md overflow-hidden w-16 h-16 sm:w-20 sm:h-20 shrink-0">
+                <Image 
+                  src="/images/logo.png" 
+                  alt="Islah Foundation" 
+                  width={200} 
+                  height={200} 
+                  className="w-auto h-full scale-[1.7] object-contain origin-center" 
+                />
               </div>
-              <span className="font-serif text-lg sm:text-xl font-bold text-white tracking-wide">Islah Foundation</span>
+              <span className="font-serif text-xl sm:text-2xl font-bold text-white tracking-wide">Islah Foundation</span>
             </Link>
             <p className="text-xs sm:text-sm leading-relaxed">
               Empowering underserved students and communities through education, mentoring, and values-based development.
