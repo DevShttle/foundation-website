@@ -107,11 +107,12 @@ export function Header() {
             <a href="mailto:info@islahfoundation.org" className="flex items-center gap-2 hover:text-white transition-colors">
               <EnvelopeSimple weight="bold" /> info@islahfoundation.org
             </a>
-            <a href="tel:+910000000000" className="flex items-center gap-2 hover:text-white transition-colors">
-              <Phone weight="bold" /> +91 000 000 0000
+            <a href="tel:+918757619741" className="flex items-center gap-2 hover:text-white transition-colors">
+              <Phone weight="bold" /> +91 87576 19741
             </a>
             <div className="flex items-center gap-3 ml-2 border-l border-white/20 pl-4">
-              <a href="#" className="hover:text-white"><InstagramLogo size={16} weight="bold" /></a>
+              <a href="https://www.instagram.com/islah_foundation/" target="_blank" rel="noopener noreferrer" className="hover:text-white" title="Instagram: @islah_foundation"><InstagramLogo size={16} weight="bold" /></a>
+              <a href="https://wa.me/918757619741" target="_blank" rel="noopener noreferrer" className="hover:text-white" title="WhatsApp: +91 87576 19741"><WhatsappLogo size={16} weight="bold" /></a>
               <a href="#" className="hover:text-white"><FacebookLogo size={16} weight="bold" /></a>
               <a href="#" className="hover:text-white"><YoutubeLogo size={16} weight="bold" /></a>
             </div>

@@ -74,21 +74,25 @@ export function Footer() {
               <EnvelopeSimple size={16} className="text-brand-gold shrink-0" />
               <span className="truncate">info@islahfoundation.org</span>
             </a>
-            <a href="tel:+910000000000" className="flex items-center gap-2.5 text-xs sm:text-sm hover:text-white transition-colors">
+            <a href="tel:+918757619741" className="flex items-center gap-2.5 text-xs sm:text-sm hover:text-white transition-colors">
               <Phone size={16} className="text-brand-gold shrink-0" />
-              <span>+91 000 000 0000</span>
+              <span>+91 87576 19741</span>
+            </a>
+            <a href="https://wa.me/918757619741" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2.5 text-xs sm:text-sm hover:text-white transition-colors">
+              <WhatsappLogo size={16} className="text-brand-gold shrink-0" />
+              <span>+91 87576 19741 (WhatsApp)</span>
             </a>
 
             {/* Socials */}
             <div className="flex items-center gap-3 mt-2 flex-wrap">
-              <a href="#" className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-brand-green transition-colors">
+              <a href="https://www.instagram.com/islah_foundation/" target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-brand-green transition-colors" title="Instagram: @islah_foundation">
                 <InstagramLogo size={16} />
+              </a>
+              <a href="https://wa.me/918757619741" target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-brand-green transition-colors" title="WhatsApp: +91 87576 19741">
+                <WhatsappLogo size={16} />
               </a>
               <a href="#" className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-brand-green transition-colors">
                 <FacebookLogo size={16} />
-              </a>
-              <a href="#" className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-brand-green transition-colors">
-                <WhatsappLogo size={16} />
               </a>
               <a href="#" className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-brand-green transition-colors">
                 <YoutubeLogo size={16} />

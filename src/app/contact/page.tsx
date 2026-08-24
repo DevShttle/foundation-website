@@ -89,21 +89,21 @@ export default function ContactPage() {
                   <Mail className="text-brand-clay shrink-0 mt-1" />
                   <div>
                     <h3 className="font-bold text-brand-charcoal text-sm">Email Address</h3>
-                    <a href="mailto:contact@islahfoundation.org" className="text-brand-green text-sm hover:underline mt-1 block">contact@islahfoundation.org</a>
+                    <a href="mailto:info@islahfoundation.org" className="text-brand-green text-sm hover:underline mt-1 block">info@islahfoundation.org</a>
                   </div>
                 </li>
                 <li className="flex items-start gap-4">
                   <Phone className="text-brand-clay shrink-0 mt-1" />
                   <div>
                     <h3 className="font-bold text-brand-charcoal text-sm">Phone</h3>
-                    <a href="tel:+910000000000" className="text-gray-600 text-sm mt-1 block">+91 00000 00000</a>
+                    <a href="tel:+918757619741" className="text-brand-green text-sm hover:underline mt-1 block">+91 87576 19741</a>
                   </div>
                 </li>
                 <li className="flex items-start gap-4">
                   <MessageSquare className="text-brand-clay shrink-0 mt-1" />
                   <div>
                     <h3 className="font-bold text-brand-charcoal text-sm">WhatsApp</h3>
-                    <a href="https://wa.me/910000000000" className="text-brand-green text-sm hover:underline mt-1 block">Message us on WhatsApp</a>
+                    <a href="https://wa.me/918757619741" target="_blank" rel="noopener noreferrer" className="text-brand-green text-sm hover:underline mt-1 block">+91 87576 19741 (Chat on WhatsApp)</a>
                   </div>
                 </li>
               </ul>
