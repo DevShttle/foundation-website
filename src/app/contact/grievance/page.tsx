@@ -32,6 +32,13 @@ const formSchema = z.object({
 
 export default function GrievancePage() {
   const [submittedId, setSubmittedId] = useState<string | null>(null);
+  const [supportingFile, setSupportingFile] = useState<File | null>(null);
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files[0]) {
+      setSupportingFile(e.target.files[0]);
+    }
+  };
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -208,12 +215,23 @@ export default function GrievancePage() {
                   />
                 </div>
 
-                <div className="border-2 border-dashed border-gray-300 rounded-xl p-6 flex flex-col items-center justify-center text-center bg-gray-50 w-full md:w-1/2">
-                  <Upload size={24} className="text-gray-400 mb-2" />
-                  <span className="text-xs font-bold text-brand-charcoal block mb-1">Upload Supporting File (Optional)</span>
-                  <span className="text-[10px] text-gray-500">PDF, JPG, PNG (Max 10MB)</span>
-                  <input type="file" className="hidden" />
-                </div>
+                <label htmlFor="grievance-file" className="border-2 border-dashed border-gray-300 hover:border-brand-green rounded-xl p-6 flex flex-col items-center justify-center text-center bg-gray-50 hover:bg-brand-sage/20 transition-all w-full md:w-1/2 cursor-pointer group">
+                  {supportingFile ? (
+                    <>
+                      <CheckCircle2 size={26} className="text-emerald-600 mb-2" />
+                      <span className="text-xs font-bold text-brand-charcoal block mb-1 truncate max-w-[200px]">{supportingFile.name}</span>
+                      <span className="text-[10px] text-gray-500 mb-2">{(supportingFile.size / (1024 * 1024)).toFixed(2)} MB</span>
+                      <button onClick={(e) => { e.preventDefault(); e.stopPropagation(); setSupportingFile(null); }} className="text-[10px] text-red-500 underline font-semibold hover:text-red-700">Remove file</button>
+                    </>
+                  ) : (
+                    <>
+                      <Upload size={24} className="text-gray-400 mb-2 group-hover:scale-110 transition-transform" />
+                      <span className="text-xs font-bold text-brand-charcoal block mb-1">Upload Supporting File (Optional)</span>
+                      <span className="text-[10px] text-gray-500">PDF, JPG, PNG (Max 10MB)</span>
+                    </>
+                  )}
+                  <input id="grievance-file" type="file" accept=".pdf,.jpg,.jpeg,.png,.doc,.docx" className="hidden" onChange={handleFileChange} />
+                </label>
 
                 <FormField
                   control={form.control}

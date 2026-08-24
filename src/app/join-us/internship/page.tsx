@@ -15,7 +15,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { ArrowRight, Upload } from "lucide-react";
+import { ArrowRight, Upload, CheckCircle2 } from "lucide-react";
 
 const formSchema = z.object({
   fullName: z.string().min(2, { message: "Name is required." }),
@@ -23,15 +23,29 @@ const formSchema = z.object({
   course: z.string().min(2, { message: "Course details are required." }),
   year: z.string().min(1, { message: "Year or semester is required." }),
   internshipArea: z.string().min(2, { message: "Please specify the internship area." }),
-  duration: z.string().min(1, { message: "Preferred duration is required." }),
+  duration: z.string().min(1, { message: "Duration is required." }),
   startDate: z.string().min(1, { message: "Start date is required." }),
-  statement: z.string().min(10, { message: "Statement of interest must be at least 10 characters." }),
+  statement: z.string().min(10, { message: "Please write a short statement of interest." }),
   consent: z.boolean().refine((val) => val === true, {
     message: "You must consent to the privacy policy.",
   }),
 });
 
 export default function InternshipPage() {
+  const [files, setFiles] = React.useState<{ resume?: File; auth?: File; portfolio?: File }>({});
+
+  const handleFileChange = (key: "resume" | "auth" | "portfolio", e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files[0]) {
+      setFiles((prev) => ({ ...prev, [key]: e.target.files![0] }));
+    }
+  };
+
+  const removeFile = (key: "resume" | "auth" | "portfolio", e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setFiles((prev) => ({ ...prev, [key]: undefined }));
+  };
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -173,26 +187,64 @@ export default function InternshipPage() {
                 </div>
               </div>
 
-              {/* File Uploads (Mocked UI) */}
+              {/* File Uploads (Interactive UI) */}
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4">
-                <div className="border-2 border-dashed border-brand-sage rounded-xl p-6 flex flex-col items-center justify-center text-center bg-brand-ivory/50">
-                  <Upload size={24} className="text-brand-clay mb-2" />
-                  <span className="text-xs font-bold text-brand-green block mb-1">Resume / CV *</span>
-                  <span className="text-[10px] text-gray-500">PDF, max 5MB</span>
-                  <input type="file" className="hidden" />
-                </div>
-                <div className="border-2 border-dashed border-brand-sage rounded-xl p-6 flex flex-col items-center justify-center text-center bg-brand-ivory/50">
-                  <Upload size={24} className="text-brand-clay mb-2" />
-                  <span className="text-xs font-bold text-brand-green block mb-1">Authorization Letter *</span>
-                  <span className="text-[10px] text-gray-500">From Institution</span>
-                  <input type="file" className="hidden" />
-                </div>
-                <div className="border-2 border-dashed border-brand-sage rounded-xl p-6 flex flex-col items-center justify-center text-center bg-brand-ivory/50">
-                  <Upload size={24} className="text-brand-clay mb-2" />
-                  <span className="text-xs font-bold text-brand-green block mb-1">Portfolio (Optional)</span>
-                  <span className="text-[10px] text-gray-500">PDF or Link</span>
-                  <input type="file" className="hidden" />
-                </div>
+                {/* Resume / CV */}
+                <label htmlFor="resume-upload" className="border-2 border-dashed border-brand-sage hover:border-brand-green rounded-xl p-6 flex flex-col items-center justify-center text-center bg-brand-ivory/50 hover:bg-brand-sage/20 transition-all cursor-pointer relative group">
+                  {files.resume ? (
+                    <>
+                      <CheckCircle2 size={26} className="text-emerald-600 mb-2" />
+                      <span className="text-xs font-bold text-brand-green block mb-1 truncate max-w-[180px]">{files.resume.name}</span>
+                      <span className="text-[10px] text-gray-500 mb-2">{(files.resume.size / (1024 * 1024)).toFixed(2)} MB</span>
+                      <button onClick={(e) => removeFile("resume", e)} className="text-[10px] text-red-500 underline font-semibold hover:text-red-700">Remove file</button>
+                    </>
+                  ) : (
+                    <>
+                      <Upload size={24} className="text-brand-clay mb-2 group-hover:scale-110 transition-transform" />
+                      <span className="text-xs font-bold text-brand-green block mb-1">Resume / CV *</span>
+                      <span className="text-[10px] text-gray-500">PDF, max 5MB</span>
+                    </>
+                  )}
+                  <input id="resume-upload" type="file" accept=".pdf,.doc,.docx" className="hidden" onChange={(e) => handleFileChange("resume", e)} />
+                </label>
+
+                {/* Authorization Letter */}
+                <label htmlFor="auth-upload" className="border-2 border-dashed border-brand-sage hover:border-brand-green rounded-xl p-6 flex flex-col items-center justify-center text-center bg-brand-ivory/50 hover:bg-brand-sage/20 transition-all cursor-pointer relative group">
+                  {files.auth ? (
+                    <>
+                      <CheckCircle2 size={26} className="text-emerald-600 mb-2" />
+                      <span className="text-xs font-bold text-brand-green block mb-1 truncate max-w-[180px]">{files.auth.name}</span>
+                      <span className="text-[10px] text-gray-500 mb-2">{(files.auth.size / (1024 * 1024)).toFixed(2)} MB</span>
+                      <button onClick={(e) => removeFile("auth", e)} className="text-[10px] text-red-500 underline font-semibold hover:text-red-700">Remove file</button>
+                    </>
+                  ) : (
+                    <>
+                      <Upload size={24} className="text-brand-clay mb-2 group-hover:scale-110 transition-transform" />
+                      <span className="text-xs font-bold text-brand-green block mb-1">Authorization Letter *</span>
+                      <span className="text-[10px] text-gray-500">From Institution</span>
+                    </>
+                  )}
+                  <input id="auth-upload" type="file" accept=".pdf,.jpg,.jpeg,.png,.doc,.docx" className="hidden" onChange={(e) => handleFileChange("auth", e)} />
+                </label>
+
+                {/* Portfolio */}
+                <label htmlFor="portfolio-upload" className="border-2 border-dashed border-brand-sage hover:border-brand-green rounded-xl p-6 flex flex-col items-center justify-center text-center bg-brand-ivory/50 hover:bg-brand-sage/20 transition-all cursor-pointer relative group">
+                  {files.portfolio ? (
+                    <>
+                      <CheckCircle2 size={26} className="text-emerald-600 mb-2" />
+                      <span className="text-xs font-bold text-brand-green block mb-1 truncate max-w-[180px]">{files.portfolio.name}</span>
+                      <span className="text-[10px] text-gray-500 mb-2">{(files.portfolio.size / (1024 * 1024)).toFixed(2)} MB</span>
+                      <button onClick={(e) => removeFile("portfolio", e)} className="text-[10px] text-red-500 underline font-semibold hover:text-red-700">Remove file</button>
+                    </>
+                  ) : (
+                    <>
+                      <Upload size={24} className="text-brand-clay mb-2 group-hover:scale-110 transition-transform" />
+                      <span className="text-xs font-bold text-brand-green block mb-1">Portfolio (Optional)</span>
+                      <span className="text-[10px] text-gray-500">PDF or Link</span>
+                    </>
+                  )}
+                  <input id="portfolio-upload" type="file" accept=".pdf,.zip,.doc,.docx" className="hidden" onChange={(e) => handleFileChange("portfolio", e)} />
+                </label>
               </div>
 
               <FormField
