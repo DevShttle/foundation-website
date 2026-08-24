@@ -162,3 +162,29 @@ section {
 .dark header {
   background-color: rgba(22, 32, 29, 0.95) !important;
 }
+
+/* Google Translate Clean Overrides */
+.goog-te-banner-frame,
+.goog-te-banner-frame.skiptranslate,
+iframe.goog-te-banner-frame {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+body {
+  top: 0px !important;
+  position: static !important;
+}
+
+.goog-te-gadget-icon {
+  display: none !important;
+}
+
+.goog-te-gadget-simple {
+  background-color: transparent !important;
+  border: none !important;
+}
+
+#google_translate_element {
+  display: none !important;
+}

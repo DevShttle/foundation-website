@@ -96,7 +96,7 @@ export function Header() {
 
   return (
     <>
-      {/* Utility Bar */}
+      {/* Top Utility Bar */}
       <div className="bg-[#083F33] text-[#DCEBE6] text-xs py-2 hidden md:block">
         <div className="container mx-auto px-4 flex justify-between items-center">
           <div className="flex items-center gap-6">
@@ -116,8 +116,8 @@ export function Header() {
               <a href="#" className="hover:text-white"><FacebookLogo size={16} weight="bold" /></a>
               <a href="#" className="hover:text-white"><YoutubeLogo size={16} weight="bold" /></a>
             </div>
-            <div className="flex items-center gap-2 ml-2 border-l border-white/20 pl-4 cursor-pointer hover:text-white">
-              <Globe weight="bold" /> En
+            <div className="ml-2 border-l border-white/20 pl-3">
+              <LanguageSelector />
             </div>
           </div>
         </div>
@@ -200,7 +200,7 @@ export function Header() {
             </Link>
           </div>
 
-          {/* Mobile CTAs & Menu Toggle (No theme button on mobile as requested) */}
+          {/* Mobile CTAs & Menu Toggle */}
           <div className="flex lg:hidden items-center gap-2 sm:gap-3 relative z-30 shrink-0 ml-auto">
             <Link
               href="/join-us/donate"
@@ -208,7 +208,7 @@ export function Header() {
             >
               Donate
             </Link>
-
+            
             <button
               className="text-brand-green p-1 flex items-center justify-center focus:outline-none"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -249,9 +249,14 @@ export function Header() {
                 </div>
               ))}
 
+              <div className="flex items-center justify-between border-t border-brand-green/10 pt-4 mt-2">
+                <span className="text-sm font-semibold text-brand-charcoal dark:text-white">Language / زبان</span>
+                <LanguageSelector />
+              </div>
+
               <Link
                 href="/join-us/donate"
-                className="mt-6 bg-brand-green text-white text-center py-3.5 rounded font-bold uppercase tracking-wider shadow-sm"
+                className="mt-4 bg-brand-green text-white text-center py-3.5 rounded font-bold uppercase tracking-wider shadow-sm"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Support Our Work
