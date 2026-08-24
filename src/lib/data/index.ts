@@ -158,7 +158,7 @@ export const boardMembers: BoardMember[] = [
   },
   {
     id: "b3",
-    name: "Mrs. Chameli Begum",
+    name: "Ms. Chameli Begum",
     role: "Treasurer",
     bio: "Ensuring transparent financial governance and responsible allocation of resources across all initiatives.",
     image: "/images/team/trustee-3.png"

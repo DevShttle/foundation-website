@@ -25,7 +25,7 @@ interface Trustee {
 const trustees: Trustee[] = [
   {
     id: "b3",
-    name: "Mrs. Chameli Begum",
+    name: "Ms. Chameli Begum",
     role: "Treasurer",
     badge: "Treasurer",
     bio: "Ensuring transparent financial governance and responsible allocation of resources across all initiatives.",
