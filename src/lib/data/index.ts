@@ -186,6 +186,7 @@ export interface Story {
   category: string;
   date: string;
   slug: string;
+  image: string;
   context?: string;
   intervention?: string;
   outcome?: string;
@@ -198,7 +199,8 @@ export const stories: Story[] = [
     summary: "How weekly guidance helped a high school student discover their academic potential.",
     category: "Mentorship",
     date: "12 Oct 2025",
-    slug: "building-confidence-mentoring"
+    slug: "building-confidence-mentoring",
+    image: "/images/stories/story-1.png"
   },
   {
     id: "s2",
@@ -207,6 +209,7 @@ export const stories: Story[] = [
     category: "Education Support",
     date: "04 Sep 2025",
     slug: "impact-learning-kits",
+    image: "/images/stories/story-2.png",
     context: "Many students in the 8th and 9th grades were severely lagging behind, lacking basic reading and writing skills. Many had never taken professional classes or were unaware of the syllabus requirements from as early as 4th or 5th grade. Additionally, many struggled to speak proper Hindi, creating a significant barrier to their formal education.",
     intervention: "We enrolled these students in extra, intensive classes to bridge their learning gaps. Our approach focused on completing basic foundational concepts and providing them with a structured, supportive learning environment tailored to their specific needs.",
     outcome: "These students are now successfully studying in the 9th and 10th standards. Thanks to the supportive environment and intensive foundational work, they are now prepared to attempt their board exams this academic session."
@@ -217,7 +220,8 @@ export const stories: Story[] = [
     summary: "Introducing foundational computer skills to eager learners in our community pilot.",
     category: "Skills Development",
     date: "22 Aug 2025",
-    slug: "digital-literacy-pilot"
+    slug: "digital-literacy-pilot",
+    image: "/images/stories/story-3.jpg"
   }
 ];
 
