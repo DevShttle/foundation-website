@@ -91,7 +91,7 @@ export function Footer() {
               <a href="https://wa.me/918757619741" target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-brand-green transition-colors" title="WhatsApp: +91 87576 19741">
                 <WhatsappLogo size={16} />
               </a>
-              <a href="#" className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-brand-green transition-colors">
+              <a href="https://www.facebook.com/profile.php?id=61573471513465" target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-brand-green transition-colors" title="Facebook: Islah Foundation">
                 <FacebookLogo size={16} />
               </a>
               <a href="#" className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-brand-green transition-colors">
