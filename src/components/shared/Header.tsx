@@ -10,6 +10,7 @@ import {
   InstagramLogo,
   FacebookLogo,
   YoutubeLogo,
+  WhatsappLogo,
   Globe,
   List,
   X,
