@@ -266,7 +266,8 @@ export default function DonatePage() {
 
               {/* QR Code Container */}
               <div className="w-44 h-44 bg-brand-ivory rounded-2xl border-2 border-dashed border-brand-sage mx-auto flex flex-col items-center justify-center p-3 mb-6 shadow-inner relative group">
-                <Image
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
                   src={`https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=upi://pay?pa=${bankDetails.upiId}&pn=Islah%20Foundation&am=${currentEffectiveAmount}&cu=INR`}
                   alt="UPI QR Code"
                   width={150}
