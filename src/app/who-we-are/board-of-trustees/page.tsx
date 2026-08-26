@@ -52,8 +52,8 @@ const trustees: Trustee[] = [
     name: "Md. Asadulla Wakil",
     role: "Trustee",
     badge: "Trustee",
-    bio: "Providing guidance on educational standards and community relations.",
-    image: "/images/team/trustee-4.png"
+    bio: "Providing guidance on educational standards, curriculum relevance, and community relations.",
+    image: "/images/team/trustee-4.jpeg"
   },
   {
     id: "b5",
