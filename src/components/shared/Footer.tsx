@@ -94,7 +94,7 @@ export function Footer() {
               <a href="https://www.facebook.com/profile.php?id=61573471513465" target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-brand-green transition-colors" title="Facebook: Islah Foundation">
                 <FacebookLogo size={16} />
               </a>
-              <a href="#" className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-brand-green transition-colors">
+              <a href="https://www.youtube.com/@islahfoundation" target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-brand-green transition-colors" title="YouTube: @islahfoundation">
                 <YoutubeLogo size={16} />
               </a>
             </div>

@@ -116,7 +116,7 @@ export function Header() {
               <a href="https://www.instagram.com/islah_foundation/" target="_blank" rel="noopener noreferrer" className="hover:text-white" title="Instagram: @islah_foundation"><InstagramLogo size={16} weight="bold" /></a>
               <a href="https://wa.me/918757619741" target="_blank" rel="noopener noreferrer" className="hover:text-white" title="WhatsApp: +91 87576 19741"><WhatsappLogo size={16} weight="bold" /></a>
               <a href="https://www.facebook.com/profile.php?id=61573471513465" target="_blank" rel="noopener noreferrer" className="hover:text-white" title="Facebook: Islah Foundation"><FacebookLogo size={16} weight="bold" /></a>
-              <a href="#" className="hover:text-white"><YoutubeLogo size={16} weight="bold" /></a>
+              <a href="https://www.youtube.com/@islahfoundation" target="_blank" rel="noopener noreferrer" className="hover:text-white" title="YouTube: @islahfoundation"><YoutubeLogo size={16} weight="bold" /></a>
             </div>
             <div className="ml-2 border-l border-white/20 pl-3">
               <LanguageSelector />
