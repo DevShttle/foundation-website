@@ -18,6 +18,7 @@ import {
   Sun,
   Moon
 } from "@phosphor-icons/react";
+import { LanguageSelector } from "./LanguageSelector";
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
