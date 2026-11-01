@@ -68,11 +68,11 @@ export function Footer() {
             <h4 className="text-white text-[11px] sm:text-xs uppercase tracking-widest font-bold mb-1 sm:mb-2">Contact</h4>
             <div className="flex items-start gap-2.5 text-xs sm:text-sm">
               <MapPin size={16} className="shrink-0 mt-0.5 text-brand-gold" />
-              <p>MASOOM COMPLEX, Chandergaon<br />PO Laucha, PS Bahadurganj<br />Dist Kishanganj<br />Bihar 855101, India</p>
+              <p>MASOOM COMPLEX, New Hat Laucha<br />PO Laucha, PS Bahadurganj<br />Dist Kishanganj<br />Bihar 855101, India</p>
             </div>
-            <a href="mailto:info@islahfoundation.org" className="flex items-center gap-2.5 text-xs sm:text-sm hover:text-white transition-colors">
+            <a href="mailto:islahfoundation.ngo@gmail.com" className="flex items-center gap-2.5 text-xs sm:text-sm hover:text-white transition-colors">
               <EnvelopeSimple size={16} className="text-brand-gold shrink-0" />
-              <span className="truncate">info@islahfoundation.org</span>
+              <span className="truncate">islahfoundation.ngo@gmail.com</span>
             </a>
             <a href="tel:+918757619741" className="flex items-center gap-2.5 text-xs sm:text-sm hover:text-white transition-colors">
               <Phone size={16} className="text-brand-gold shrink-0" />

@@ -89,7 +89,7 @@ export function FeaturedProgramme() {
           <div className="lg:col-span-5">
             <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white/20 group h-[360px] sm:h-[440px] lg:h-[480px] bg-brand-sage/20">
               <Image
-                src="/images/programmes/featured.png"
+                src="/images/programmes/card-featured.png"
                 alt="Islah Learning Support Programme"
                 fill
                 sizes="(max-width: 1024px) 100vw, 42vw"

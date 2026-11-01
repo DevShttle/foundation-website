@@ -7,6 +7,8 @@ import Image from "next/image";
 
 const slides = [
   {
+    image: "/images/hero/hero-bg.jpeg",
+    imageAlt: "Students supported by Islah Foundation",
     eyebrow: "Islah Foundation, Kishanganj, Bihar",
     headline: "Education with knowledge, character and purpose",
     supporting: "We help underserved students access quality education, mentoring, essential learning resources and values-based development.",
@@ -14,6 +16,8 @@ const slides = [
     secondaryBtn: { label: "Support a Student", href: "/join-us/donate" },
   },
   {
+    image: "/images/hero/hero-bg-02.png",
+    imageAlt: "Students and mentors from Islah Academy",
     eyebrow: "Our Belief",
     headline: "Opportunity should not depend on a child's circumstances",
     supporting: "We work with students, families, teachers and volunteers to reduce educational barriers and build lasting confidence.",
@@ -21,6 +25,8 @@ const slides = [
     secondaryBtn: { label: "Become a Volunteer", href: "/join-us/volunteer" },
   },
   {
+    image: "/images/hero/hero-bg-03.png",
+    imageAlt: "Students learning together in an Islah Academy classroom",
     eyebrow: "Our Inspiration",
     headline: "Guided by faith. Committed to everyone.",
     supporting: "Our service is inspired by knowledge, compassion, justice, dignity and amanah, and is delivered without discrimination.",
@@ -65,14 +71,22 @@ export function HeroSection() {
       aria-roledescription="carousel"
       aria-label="Islah Foundation highlights"
     >
-      {/* Background Image */}
-      <Image 
-        src="/images/hero/hero-bg.jpeg" 
-        alt="Islah Foundation Work" 
-        fill 
-        className="object-cover z-0 opacity-30 mix-blend-luminosity" 
-        priority
-      />
+      {/* Slide background images */}
+      {slides.map((slide, idx) => (
+        <Image
+          key={slide.image}
+          src={slide.image}
+          alt={slide.imageAlt}
+          fill
+          sizes="100vw"
+          priority={idx === 0}
+          aria-hidden={idx !== currentSlide}
+          className={cn(
+            "z-0 object-cover object-center mix-blend-luminosity transition-opacity duration-1000 motion-reduce:transition-none",
+            idx === currentSlide ? "opacity-30" : "opacity-0"
+          )}
+        />
+      ))}
       
       {/* Pattern Overlay */}
       <div className="absolute inset-0 opacity-10 pointer-events-none z-0" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '32px 32px' }} />

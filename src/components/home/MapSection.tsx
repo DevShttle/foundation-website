@@ -15,7 +15,7 @@ export function MapSection() {
               Rooted in Kishanganj. Growing responsibly.
             </h2>
             <p className="text-lg text-brand-charcoal/70 leading-relaxed mb-8">
-              We operate exclusively in Kishanganj, Bihar, focusing our resources on the communities we know best. Our headquarters is located in Chandergaon, Bahadurganj.
+              We operate exclusively in Kishanganj, Bihar, focusing our resources on the communities we know best. Our Main Office  is located in New Hat Laucha, Bahadurganj, Kishanganj.
             </p>
             
             <div className="space-y-4">
@@ -23,7 +23,7 @@ export function MapSection() {
                 <MapPin className="text-brand-clay mt-1 shrink-0" />
                 <div>
                   <h4 className="font-bold text-brand-charcoal">Bahadurganj Hub</h4>
-                  <p className="text-sm text-gray-500">Chandergaon & Surrounding Wards</p>
+                  <p className="text-sm text-gray-500">New Hat Laucha & Surrounding Villages</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
