@@ -11,19 +11,16 @@ import {
   FacebookLogo,
   YoutubeLogo,
   WhatsappLogo,
-  Globe,
   List,
   X,
-  CaretDown,
-  Sun,
-  Moon
+  CaretDown
 } from "@phosphor-icons/react";
 import { LanguageSelector } from "./LanguageSelector";
+import { LazyThemeSettings } from "./LazyThemeSettings";
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [theme, setTheme] = useState<"light" | "dark">("light");
   const pathname = usePathname();
 
   useEffect(() => {
@@ -35,29 +32,25 @@ export function Header() {
   }, []);
 
   useEffect(() => {
-    const savedTheme = localStorage.getItem("theme");
-    const systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    setMobileMenuOpen(false);
+  }, [pathname]);
 
-    if (savedTheme === "dark" || (!savedTheme && systemDark)) {
-      setTheme("dark");
-      document.documentElement.classList.add("dark");
-    } else {
-      setTheme("light");
-      document.documentElement.classList.remove("dark");
-    }
-  }, []);
+  useEffect(() => {
+    if (!mobileMenuOpen) return;
 
-  const toggleTheme = () => {
-    if (theme === "light") {
-      setTheme("dark");
-      document.documentElement.classList.add("dark");
-      localStorage.setItem("theme", "dark");
-    } else {
-      setTheme("light");
-      document.documentElement.classList.remove("dark");
-      localStorage.setItem("theme", "light");
-    }
-  };
+    const previousOverflow = document.body.style.overflow;
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setMobileMenuOpen(false);
+    };
+
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", closeOnEscape);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", closeOnEscape);
+    };
+  }, [mobileMenuOpen]);
 
   const navLinks = [
     { label: "Home", href: "/" },
@@ -130,27 +123,39 @@ export function Header() {
         className={cn(
           "sticky top-0 z-50 w-full transition-all duration-300 border-b border-brand-green/10",
           isScrolled
-            ? "bg-brand-ivory/95 backdrop-blur-md shadow-sm py-3"
-            : "bg-brand-ivory py-5"
+            ? "bg-white/95 py-2 shadow-sm backdrop-blur-md dark:bg-[#17211e]/95"
+            : "bg-white py-3 dark:bg-[#17211e]"
         )}
       >
-        <div className="container mx-auto px-4 flex items-center justify-between">
+        <div className="container mx-auto flex items-center justify-between px-3 sm:px-4">
 
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-1.8 sm:gap-6 text-brand-green group hover:opacity-80 transition-opacity relative z-20 shrink min-w-0 -ml-1 sm:ml-0">
-            <Image src="/images/logo.png" alt="Islah Foundation" width={200} height={200} className="w-auto h-14 sm:h-22 md:h-26 scale-[1.65] sm:scale-[1.95] origin-left object-contain" />
-            <span className="font-serif text-lg sm:text-2xl md:text-3xl font-bold ml-2 sm:ml-5 lg:ml-12 tracking-tight sm:tracking-wide text-brand-green truncate">Islah Foundation</span>
+          <Link href="/" className="brand-logo-lockup group relative z-20 flex min-w-0 items-center transition-opacity hover:opacity-90">
+            <span className="brand-logo-mark relative h-12 w-12 shrink-0 overflow-hidden rounded-full bg-white ring-1 ring-brand-green/10 sm:h-14 sm:w-14">
+              <Image
+                src="/images/logo.png"
+                alt=""
+                fill
+                sizes="128px"
+                quality={100}
+                className="scale-[2.02] object-contain"
+                priority
+              />
+            </span>
+            <span className="brand-logo-name ml-2 truncate font-serif text-[17px] font-bold tracking-tight text-[#0C5B48] min-[390px]:text-xl sm:ml-3 sm:text-2xl xl:text-[1.7rem]">
+              Islah Foundation
+            </span>
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden lg:flex items-center gap-8">
+          <nav className="hidden items-center gap-5 xl:flex 2xl:gap-7" aria-label="Primary navigation">
             {navLinks.map((link) => (
               <div key={link.label} className="relative group">
                 <Link
                   href={link.href}
                   className={cn(
                     "text-sm font-semibold hover:text-brand-green transition-colors flex items-center gap-1",
-                    pathname === link.href || pathname.startsWith(link.href + "/")
+                    pathname === link.href || (link.href !== "/" && pathname.startsWith(link.href + "/"))
                       ? "text-brand-green"
                       : "text-brand-charcoal"
                   )}
@@ -179,42 +184,32 @@ export function Header() {
             ))}
           </nav>
 
-          {/* Desktop CTAs (Theme toggle kept exclusively on desktop) */}
-          <div className="hidden lg:flex items-center gap-4">
-            <button
-              onClick={toggleTheme}
-              aria-label="Toggle Day or Night theme"
-              className="p-2.5 rounded-full border border-brand-green/20 hover:border-brand-green bg-brand-sage/40 text-brand-green dark:text-amber-300 dark:bg-brand-green/40 transition-all duration-300 flex items-center justify-center shadow-sm"
-              title={theme === "dark" ? "Switch to Day mode" : "Switch to Night mode"}
-            >
-              {theme === "dark" ? (
-                <Sun size={20} weight="bold" className="text-amber-400 animate-spin-slow" />
-              ) : (
-                <Moon size={20} weight="bold" className="text-brand-green" />
-              )}
-            </button>
-
+          {/* Desktop actions */}
+          <div className="hidden items-center gap-3 xl:flex">
+            <LazyThemeSettings />
             <Link
               href="/join-us/donate"
-              className="bg-brand-green text-white px-6 py-2.5 rounded text-xs font-bold uppercase tracking-wider hover:bg-[#083F33] transition-colors shadow-sm"
+              className="inline-flex min-h-11 items-center rounded-lg bg-brand-green px-5 text-xs font-bold uppercase tracking-wider text-white shadow-sm transition-colors hover:bg-[#083F33]"
             >
-              Support Our Work
+              Support us
             </Link>
           </div>
 
           {/* Mobile CTAs & Menu Toggle */}
-          <div className="flex lg:hidden items-center gap-2 sm:gap-3 relative z-30 shrink-0 ml-auto">
+          <div className="relative z-30 ml-auto flex shrink-0 items-center gap-1.5 xl:hidden sm:gap-2">
             <Link
               href="/join-us/donate"
-              className="bg-brand-green text-white px-3.5 py-1.5 sm:px-4 sm:py-2 rounded text-[11px] sm:text-xs font-bold uppercase tracking-wider whitespace-nowrap shadow-sm"
+              className="hidden min-h-10 items-center whitespace-nowrap rounded-lg bg-brand-green px-3 text-[10px] font-bold uppercase tracking-wider text-white shadow-sm min-[360px]:inline-flex sm:min-h-11 sm:px-4 sm:text-xs"
             >
               Donate
             </Link>
             
             <button
-              className="text-brand-green p-1 flex items-center justify-center focus:outline-none"
+              className="flex min-h-11 min-w-11 items-center justify-center rounded-full text-brand-green transition-colors hover:bg-brand-sage/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              aria-label="Toggle menu"
+              aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+              aria-expanded={mobileMenuOpen}
+              aria-controls="mobile-navigation"
             >
               {mobileMenuOpen ? <X size={28} /> : <List size={28} />}
             </button>
@@ -223,24 +218,27 @@ export function Header() {
 
         {/* Mobile Navigation Drawer */}
         {mobileMenuOpen && (
-          <div className="lg:hidden absolute top-full left-0 w-full bg-brand-ivory dark:bg-[#1a2421] border-t border-brand-green/10 shadow-lg p-4 flex flex-col h-[calc(100vh-80px)] overflow-y-auto">
-            <nav className="flex flex-col gap-4 mt-2">
+          <div
+            id="mobile-navigation"
+            className="absolute left-0 top-full flex h-[calc(100dvh-4.25rem)] w-full flex-col overflow-y-auto border-t border-brand-green/10 bg-white p-4 pb-[calc(7rem+env(safe-area-inset-bottom))] shadow-xl dark:bg-[#17211e] xl:hidden"
+          >
+            <nav className="mt-1 flex flex-col gap-2" aria-label="Mobile navigation">
               {navLinks.map((link) => (
-                <div key={link.label} className="flex flex-col gap-2">
+                <div key={link.label} className="flex flex-col rounded-xl border border-brand-green/10 bg-brand-sage/10 px-4 dark:bg-white/5">
                   <Link
                     href={link.href}
-                    className="text-lg font-serif font-bold text-brand-green border-b border-brand-green/10 pb-2"
+                    className="flex min-h-12 items-center font-serif text-lg font-bold text-brand-green dark:text-brand-sage"
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     {link.label}
                   </Link>
                   {link.children && (
-                    <div className="flex flex-col gap-3 pl-4 pt-2 pb-4">
+                    <div className="grid grid-cols-1 gap-1 border-t border-brand-green/10 pb-3 pt-2 min-[420px]:grid-cols-2">
                       {link.children.map((child) => (
                         <Link
                           key={child.label}
                           href={child.href}
-                          className="text-sm font-semibold opacity-80"
+                          className="flex min-h-10 items-center rounded-lg px-2 text-sm font-semibold text-brand-charcoal/75 hover:bg-brand-sage/30 hover:text-brand-green dark:text-white/75"
                           onClick={() => setMobileMenuOpen(false)}
                         >
                           {child.label}
@@ -251,14 +249,17 @@ export function Header() {
                 </div>
               ))}
 
-              <div className="flex items-center justify-between border-t border-brand-green/10 pt-4 mt-2">
-                <span className="text-sm font-semibold text-brand-charcoal dark:text-white">Language / زبان</span>
-                <LanguageSelector />
+              <div className="mt-3 grid gap-2 border-t border-brand-green/10 pt-4 min-[420px]:grid-cols-2">
+                <LazyThemeSettings showLabel />
+                <div className="flex min-h-11 items-center justify-between rounded-xl border border-brand-green/15 bg-white px-3 shadow-sm dark:bg-[#1a2522]">
+                  <span className="text-sm font-bold text-brand-charcoal dark:text-white">Language</span>
+                  <LanguageSelector />
+                </div>
               </div>
 
               <Link
                 href="/join-us/donate"
-                className="mt-4 bg-brand-green text-white text-center py-3.5 rounded font-bold uppercase tracking-wider shadow-sm"
+                className="mt-2 flex min-h-12 items-center justify-center rounded-xl bg-brand-green text-center text-sm font-bold uppercase tracking-wider text-white shadow-sm"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Support Our Work

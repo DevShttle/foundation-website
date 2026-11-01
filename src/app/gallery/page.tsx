@@ -54,6 +54,8 @@ export default function GalleryPage() {
                 src={img.src}
                 alt={img.title}
                 fill
+                sizes="(max-width: 640px) 85vw, (max-width: 1024px) 33vw, 25vw"
+                loading="lazy"
                 className="object-cover transition-transform duration-700 group-hover:scale-110"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-brand-charcoal/90 via-brand-charcoal/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity z-10" />
@@ -93,6 +95,8 @@ export default function GalleryPage() {
                     src={img.src}
                     alt={img.title}
                     fill
+                    sizes="85vw"
+                    loading="lazy"
                     className="object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-brand-charcoal/90 via-brand-charcoal/20 to-transparent opacity-70 z-10" />

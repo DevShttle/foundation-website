@@ -272,6 +272,8 @@ export default function DonatePage() {
                   alt="UPI QR Code"
                   width={150}
                   height={150}
+                  loading="lazy"
+                  decoding="async"
                   className="rounded-lg object-contain"
                 />
               </div>

@@ -159,7 +159,7 @@ export default function BoardOfTrusteesPage() {
                           "object-cover object-top transition-transform duration-700 ease-out",
                           isActive ? "scale-105" : "scale-100"
                         )}
-                        priority
+                        loading="lazy"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-brand-green/60 via-transparent to-transparent opacity-75" />
 

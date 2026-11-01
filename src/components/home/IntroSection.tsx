@@ -17,6 +17,8 @@ export function IntroSection() {
                 src="/images/about/intro-1.png"
                 alt="Students learning"
                 fill
+                sizes="(max-width: 1024px) 75vw, 38vw"
+                loading="lazy"
                 className="object-cover"
               />
             </div>
@@ -27,6 +29,8 @@ export function IntroSection() {
                 src="/images/about/intro-2.png"
                 alt="Mentoring session"
                 fill
+                sizes="(max-width: 1024px) 55vw, 28vw"
+                loading="lazy"
                 className="object-cover"
               />
             </div>

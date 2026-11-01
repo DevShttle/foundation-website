@@ -242,6 +242,8 @@ export function GallerySection() {
                       src={img.src}
                       alt={img.title}
                       fill
+                      sizes="(max-width: 767px) 85vw, 45vw"
+                      loading="lazy"
                       className="object-cover transition-transform duration-700 group-hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-brand-charcoal/90 via-brand-charcoal/30 to-transparent opacity-75 group-hover:opacity-85 transition-opacity z-10" />
@@ -315,6 +317,8 @@ export function GallerySection() {
                       src={img.src}
                       alt={img.title}
                       fill
+                      sizes="85vw"
+                      loading="lazy"
                       className="object-cover"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-brand-charcoal/90 via-brand-charcoal/30 to-transparent opacity-80 z-10" />
@@ -360,6 +364,7 @@ export function GallerySection() {
                 src={filteredImages[selectedImageIndex].src}
                 alt={filteredImages[selectedImageIndex].title}
                 fill
+                sizes="100vw"
                 className="object-contain"
               />
             </div>

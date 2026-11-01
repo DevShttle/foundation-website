@@ -31,26 +31,33 @@ export function QuickNav() {
   ];
 
   return (
-    <section className="bg-white py-12 lg:py-0 lg:-mt-16 relative z-20">
-      <div className="container mx-auto px-4">
-        <div className="bg-white lg:shadow-[0_15px_40px_rgba(16,58,45,0.06)] lg:rounded-xl lg:border border-brand-sage flex flex-col lg:flex-row overflow-hidden">
+    <section className="relative z-20 bg-white py-8 dark:bg-[#1a2522] lg:-mt-16 lg:bg-transparent lg:py-0">
+      <div className="container mx-auto px-0 lg:px-4">
+        <div className="mb-4 flex items-end justify-between px-4 lg:hidden">
+          <div>
+            <p className="mb-1 text-[10px] font-bold uppercase tracking-[0.18em] text-brand-gold">Explore</p>
+            <h2 className="font-serif text-2xl text-brand-charcoal dark:text-white">How we help</h2>
+          </div>
+          <span className="text-[11px] font-semibold text-brand-charcoal/50 dark:text-white/50">Swipe →</span>
+        </div>
+        <div className="mobile-card-scroll flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 pb-3 lg:gap-0 lg:overflow-hidden lg:rounded-xl lg:border lg:border-brand-sage lg:bg-white lg:p-0 lg:shadow-[0_15px_40px_rgba(16,58,45,0.06)] dark:lg:bg-[#1a2522]">
           {cards.map((card, idx) => {
             const Icon = card.icon;
             return (
               <div
                 key={idx}
-                className="flex-1 p-8 lg:p-10 border-b lg:border-b-0 lg:border-r border-brand-sage last:border-0 group hover:bg-brand-sage/20 transition-colors"
+                className="group min-w-[82vw] snap-center rounded-2xl border border-brand-sage bg-white p-6 shadow-[0_8px_24px_rgba(16,58,45,0.06)] transition-colors hover:bg-brand-sage/20 dark:bg-[#1a2522] dark:hover:bg-[#24332f] min-[480px]:min-w-[62vw] sm:min-w-[46vw] lg:min-w-0 lg:flex-1 lg:snap-none lg:rounded-none lg:border-0 lg:border-r lg:p-9 lg:shadow-none lg:last:border-0 xl:p-10"
               >
-                <div className="w-12 h-12 rounded-full bg-brand-sage flex items-center justify-center text-brand-green mb-6 group-hover:scale-110 transition-transform">
+                <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-full bg-brand-sage text-brand-green transition-transform group-hover:scale-110">
                   <Icon size={24} />
                 </div>
-                <h3 className="font-serif text-xl mb-3 text-brand-charcoal">{card.title}</h3>
-                <p className="text-sm text-brand-charcoal/70 leading-relaxed mb-6 h-auto lg:h-16">
+                <h3 className="mb-3 font-serif text-xl text-brand-charcoal dark:text-white">{card.title}</h3>
+                <p className="mb-6 min-h-[66px] text-sm leading-relaxed text-brand-charcoal/70 dark:text-white/70 lg:h-16 lg:min-h-0">
                   {card.desc}
                 </p>
                 <Link
                   href={card.link}
-                  className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-brand-green group-hover:text-brand-clay transition-colors"
+                  className="inline-flex min-h-11 items-center gap-2 text-xs font-bold uppercase tracking-widest text-brand-green transition-colors group-hover:text-brand-clay dark:text-brand-sage"
                 >
                   Learn More <ArrowRight size={14} />
                 </Link>

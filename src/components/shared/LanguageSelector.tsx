@@ -16,37 +16,70 @@ const languages: LanguageOption[] = [
   { code: "ur", label: "Urdu", nativeName: "اردو" },
 ];
 
+let translateScriptPromise: Promise<void> | null = null;
+
+function initializeGoogleTranslate() {
+  const container = document.getElementById("google_translate_element");
+  if (!container || container.childElementCount > 0 || !window.google?.translate?.TranslateElement) {
+    return;
+  }
+
+  new window.google.translate.TranslateElement(
+    {
+      pageLanguage: "en",
+      includedLanguages: "en,hi,ur",
+      autoDisplay: false,
+    },
+    "google_translate_element"
+  );
+}
+
+function loadGoogleTranslate() {
+  if (window.google?.translate?.TranslateElement) {
+    initializeGoogleTranslate();
+    return Promise.resolve();
+  }
+
+  if (translateScriptPromise) return translateScriptPromise;
+
+  translateScriptPromise = new Promise<void>((resolve, reject) => {
+    window.googleTranslateElementInit = () => {
+      initializeGoogleTranslate();
+      resolve();
+    };
+
+    const existingScript = document.getElementById("google-translate-script") as HTMLScriptElement | null;
+    if (existingScript) {
+      existingScript.addEventListener("load", () => {
+        initializeGoogleTranslate();
+        resolve();
+      }, { once: true });
+      existingScript.addEventListener("error", () => reject(new Error("Google Translate failed to load")), { once: true });
+      return;
+    }
+
+    const script = document.createElement("script");
+    script.id = "google-translate-script";
+    script.src = "https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
+    script.async = true;
+    script.defer = true;
+    script.addEventListener("error", () => reject(new Error("Google Translate failed to load")), { once: true });
+    document.body.appendChild(script);
+  });
+
+  return translateScriptPromise;
+}
+
 export function LanguageSelector() {
   const [isOpen, setIsOpen] = useState(false);
   const [currentLang, setCurrentLang] = useState<LanguageCode>("en");
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  // Initialize Google Translate & load saved language preference
+  // Load the saved preference immediately, but defer the third-party Google
+  // Translate script unless translation is actually needed.
   useEffect(() => {
     const savedLang = (localStorage.getItem("app_lang") as LanguageCode) || "en";
     setCurrentLang(savedLang);
-
-    // Add Google Translate script if not already present
-    if (!document.getElementById("google-translate-script")) {
-      const script = document.createElement("script");
-      script.id = "google-translate-script";
-      script.src = "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
-      script.async = true;
-      document.body.appendChild(script);
-
-      window.googleTranslateElementInit = () => {
-        if (window.google?.translate?.TranslateElement) {
-          new window.google.translate.TranslateElement(
-            {
-              pageLanguage: "en",
-              includedLanguages: "en,hi,ur",
-              autoDisplay: false,
-            },
-            "google_translate_element"
-          );
-        }
-      };
-    }
 
     // Apply RTL for Urdu if needed
     if (savedLang === "ur") {
@@ -55,6 +88,12 @@ export function LanguageSelector() {
       document.documentElement.dir = "ltr";
     }
 
+    const translatedLanguageTimer = savedLang === "en"
+      ? undefined
+      : window.setTimeout(() => {
+          void loadGoogleTranslate().catch(() => undefined);
+        }, 1500);
+
     // Close dropdown on outside click
     const handleClickOutside = (e: MouseEvent) => {
       if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
@@ -62,10 +101,19 @@ export function LanguageSelector() {
       }
     };
     document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      if (translatedLanguageTimer !== undefined) window.clearTimeout(translatedLanguageTimer);
+    };
   }, []);
 
-  const changeLanguage = (langCode: LanguageCode) => {
+  const toggleDropdown = () => {
+    const nextOpen = !isOpen;
+    setIsOpen(nextOpen);
+    if (nextOpen) void loadGoogleTranslate().catch(() => undefined);
+  };
+
+  const changeLanguage = async (langCode: LanguageCode) => {
     setCurrentLang(langCode);
     localStorage.setItem("app_lang", langCode);
     setIsOpen(false);
@@ -82,7 +130,14 @@ export function LanguageSelector() {
     document.cookie = `googtrans=/en/${langCode}; path=/; domain=${domain}`;
     document.cookie = `googtrans=/en/${langCode}; path=/`;
 
-    // Trigger Google Translate dropdown element if available
+    // Load the translation engine only after the visitor makes an explicit choice.
+    try {
+      await loadGoogleTranslate();
+    } catch {
+      window.location.reload();
+      return;
+    }
+
     const selectElem = document.querySelector(".goog-te-combo") as HTMLSelectElement | null;
     if (selectElem) {
       selectElem.value = langCode;
@@ -103,7 +158,7 @@ export function LanguageSelector() {
       {/* Language Trigger Button */}
       <button
         type="button"
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={toggleDropdown}
         className="flex items-center gap-1.5 px-2.5 py-1 rounded text-xs font-semibold hover:bg-white/10 transition-colors focus:outline-none"
         aria-expanded={isOpen}
       >

@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { ArrowRight, Heart } from "lucide-react";
+import { ArrowLeft, ArrowRight, Heart, Pause, Play } from "lucide-react";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 
@@ -31,16 +31,40 @@ const slides = [
 
 export function HeroSection() {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
 
   useEffect(() => {
+    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const updateMotionPreference = () => setPrefersReducedMotion(mediaQuery.matches);
+    updateMotionPreference();
+    mediaQuery.addEventListener("change", updateMotionPreference);
+    return () => mediaQuery.removeEventListener("change", updateMotionPreference);
+  }, []);
+
+  useEffect(() => {
+    if (isPaused || prefersReducedMotion) return;
+
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
     }, 6000);
     return () => clearInterval(timer);
-  }, []);
+  }, [isPaused, prefersReducedMotion]);
+
+  const showPrevious = () => {
+    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+  };
+
+  const showNext = () => {
+    setCurrentSlide((prev) => (prev + 1) % slides.length);
+  };
 
   return (
-    <section className="relative bg-brand-green text-white min-h-0 sm:min-h-[500px] md:min-h-[600px] lg:min-h-[700px] flex items-center overflow-hidden">
+    <section
+      className="relative min-h-[650px] overflow-hidden bg-brand-green text-white sm:min-h-[590px] md:min-h-[650px] lg:min-h-[700px]"
+      aria-roledescription="carousel"
+      aria-label="Islah Foundation highlights"
+    >
       {/* Background Image */}
       <Image 
         src="/images/hero/hero-bg.jpeg" 
@@ -53,68 +77,67 @@ export function HeroSection() {
       {/* Pattern Overlay */}
       <div className="absolute inset-0 opacity-10 pointer-events-none z-0" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '32px 32px' }} />
       
-      <div className="container mx-auto px-4 relative z-10 py-8 sm:py-14 md:py-20">
-        <div className="max-w-3xl">
+      <div className="container relative z-10 mx-auto px-4 pb-28 pt-10 sm:pb-24 sm:pt-14 md:pt-20">
+        <div className="relative min-h-[500px] max-w-3xl sm:min-h-[430px] md:min-h-[470px]">
           {slides.map((slide, idx) => (
             <div 
               key={idx}
               className={cn(
-                "transition-all duration-1000 absolute top-1/2 -translate-y-1/2 w-full max-w-3xl",
-                idx === currentSlide ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8 pointer-events-none"
+                "absolute inset-x-0 top-0 w-full max-w-3xl transition-all duration-700 motion-reduce:transition-none",
+                idx === currentSlide ? "translate-x-0 opacity-100" : "pointer-events-none translate-x-6 opacity-0"
               )}
+              aria-hidden={idx !== currentSlide}
             >
-              <div className="text-brand-gold font-bold text-xs uppercase tracking-[0.2em] mb-3 sm:mb-6 flex items-center gap-4">
-                <span className="w-8 h-px bg-brand-gold block" />
+              <div className="mb-4 flex items-center gap-3 text-[10px] font-bold uppercase leading-relaxed tracking-[0.16em] text-brand-gold sm:mb-6 sm:text-xs sm:tracking-[0.2em]">
+                <span className="block h-px w-6 shrink-0 bg-brand-gold sm:w-8" />
                 {slide.eyebrow}
               </div>
-              <h1 className="font-serif text-3xl md:text-6xl lg:text-7xl leading-[1.1] mb-4 sm:mb-8">
+              <h1 className="mb-5 max-w-[18ch] font-serif text-[2.35rem] leading-[1.06] min-[390px]:text-[2.7rem] sm:mb-7 sm:text-5xl md:text-6xl lg:text-7xl">
                 {slide.headline}
               </h1>
-              <p className="text-sm md:text-xl text-brand-sage leading-relaxed max-w-2xl mb-6 sm:mb-10">
+              <p className="mb-7 max-w-2xl text-[15px] leading-7 text-brand-sage sm:mb-9 sm:text-lg md:text-xl">
                 {slide.supporting}
               </p>
-              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-5">
-                <Link href={slide.primaryBtn.href} className="bg-brand-gold text-white px-6 py-3 sm:px-8 sm:py-4 rounded font-bold uppercase tracking-widest text-[11px] sm:text-xs hover:bg-[#a6822c] transition-colors flex items-center gap-2">
+              <div className="flex w-full max-w-md flex-col items-stretch gap-3 sm:max-w-none sm:flex-row sm:items-center sm:gap-4">
+                <Link href={slide.primaryBtn.href} className="flex min-h-12 items-center justify-center gap-2 rounded-lg bg-brand-gold px-5 text-center text-[11px] font-bold uppercase tracking-widest text-white transition-colors hover:bg-[#a6822c] sm:px-7 sm:text-xs">
                   {slide.primaryBtn.label} <ArrowRight size={16} />
                 </Link>
-                <Link href={slide.secondaryBtn.href} className="bg-transparent border border-white/30 text-white px-6 py-3 sm:px-8 sm:py-4 rounded font-bold uppercase tracking-widest text-[11px] sm:text-xs hover:bg-white/10 transition-colors flex items-center gap-2">
+                <Link href={slide.secondaryBtn.href} className="flex min-h-12 items-center justify-center gap-2 rounded-lg border border-white/30 bg-transparent px-5 text-center text-[11px] font-bold uppercase tracking-widest text-white transition-colors hover:bg-white/10 sm:px-7 sm:text-xs">
                   <Heart size={16} /> {slide.secondaryBtn.label}
                 </Link>
               </div>
             </div>
           ))}
-          
-          {/* Responsive Invisible placeholder to maintain proper container height */}
-          <div className="opacity-0 pointer-events-none aria-hidden">
-             <div className="text-xs mb-3 sm:mb-6">Placeholder</div>
-             <h1 className="font-serif text-3xl md:text-6xl lg:text-7xl leading-[1.1] mb-4 sm:mb-8">Education with knowledge, character and purpose</h1>
-             <p className="text-sm md:text-xl leading-relaxed max-w-2xl mb-6 sm:mb-10">We help underserved students access quality education, mentoring, essential learning resources and values-based development.</p>
-             <div className="h-20 sm:h-12"></div>
-          </div>
         </div>
       </div>
 
       {/* Trust Indicator & Controls */}
-      <div className="absolute bottom-0 left-0 w-full border-t border-white/10 bg-black/10">
-        <div className="container mx-auto px-4 h-16 flex items-center justify-between">
-          <div className="flex items-center gap-6 text-xs text-brand-sage font-medium tracking-wide">
-            <span className="hidden md:block">Community initiative since 2024</span>
-            <span className="hidden md:block w-1 h-1 rounded-full bg-brand-gold" />
-            <span>Registered Public Charitable Trust since 2026</span>
+      <div className="absolute bottom-0 left-0 w-full border-t border-white/10 bg-black/15 backdrop-blur-sm">
+        <div className="container mx-auto flex min-h-[76px] items-center justify-between gap-3 px-3 sm:px-4">
+          <div className="min-w-0 text-[10px] font-medium leading-relaxed tracking-wide text-brand-sage sm:text-xs">
+            <span className="hidden md:inline">Community initiative since 2024 <span className="mx-3 text-brand-gold">•</span> </span>
+            <span>Registered Trust since 2026</span>
           </div>
-          
-          <div className="flex gap-2">
-            {slides.map((_, idx) => (
-              <button 
-                key={idx}
-                onClick={() => setCurrentSlide(idx)}
-                className={cn(
-                  "w-12 h-1 rounded-full transition-all",
-                  idx === currentSlide ? "bg-brand-gold" : "bg-white/20 hover:bg-white/40"
-                )}
-                aria-label={`Go to slide ${idx + 1}`}
-              />
-            ))}
+
+          <div className="flex shrink-0 items-center gap-1" aria-label="Carousel controls">
+            <button type="button" onClick={showPrevious} className="flex h-11 w-11 items-center justify-center rounded-full text-white hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold" aria-label="Previous highlight">
+              <ArrowLeft size={18} aria-hidden="true" />
+            </button>
+            <span className="min-w-[42px] text-center text-xs font-bold tabular-nums text-white" aria-live="polite">
+              {currentSlide + 1} / {slides.length}
+            </span>
+            <button type="button" onClick={showNext} className="flex h-11 w-11 items-center justify-center rounded-full text-white hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold" aria-label="Next highlight">
+              <ArrowRight size={18} aria-hidden="true" />
+            </button>
+            <button
+              type="button"
+              onClick={() => setIsPaused((paused) => !paused)}
+              className="hidden h-11 w-11 items-center justify-center rounded-full text-white hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold min-[390px]:flex"
+              aria-label={isPaused ? "Play highlights" : "Pause highlights"}
+              aria-pressed={isPaused}
+            >
+              {isPaused ? <Play size={17} aria-hidden="true" /> : <Pause size={17} aria-hidden="true" />}
+            </button>
           </div>
         </div>
       </div>

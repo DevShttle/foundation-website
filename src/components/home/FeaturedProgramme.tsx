@@ -1,5 +1,3 @@
-"use client";
-
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -42,7 +40,7 @@ export function FeaturedProgramme() {
                   <Target size={14} />
                   <span>Target</span>
                 </div>
-                <dd className="text-sm sm:text-base font-semibold text-white">Grades 5 – 10</dd>
+                <dd className="text-sm sm:text-base font-semibold text-white">Grades 4 – 12</dd>
               </div>
 
               <div className="bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/15 transition-all hover:bg-white/15">
@@ -50,7 +48,7 @@ export function FeaturedProgramme() {
                   <MapPin size={14} />
                   <span>Location</span>
                 </div>
-                <dd className="text-sm sm:text-base font-semibold text-white">Chandergaon</dd>
+                <dd className="text-sm sm:text-base font-semibold text-white">New Hat Laucha</dd>
               </div>
 
               <div className="bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/15 transition-all hover:bg-white/15">
@@ -94,8 +92,9 @@ export function FeaturedProgramme() {
                 src="/images/programmes/featured.png"
                 alt="Islah Learning Support Programme"
                 fill
+                sizes="(max-width: 1024px) 100vw, 42vw"
+                loading="lazy"
                 className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                priority
               />
               
               {/* Overlay Gradient */}
