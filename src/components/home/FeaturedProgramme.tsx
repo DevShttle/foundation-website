@@ -14,64 +14,76 @@ export function FeaturedProgramme() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
           {/* Left Column: Text Info & Specs */}
-          <div className="lg:col-span-7">
-            
-            {/* Category Pill */}
-            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-3.5 py-1.5 rounded-full text-brand-sage text-[10px] font-bold uppercase tracking-widest mb-6 border border-white/15">
-              <Sparkles size={13} className="text-brand-gold" />
-              <span>Featured Programme</span>
-            </div>
+<div className="lg:col-span-7">
 
-            {/* Title */}
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 text-white leading-tight">
-              Islah Learning Support Programme
-            </h2>
+  {/* Category Pill */}
+  <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-3.5 py-1.5 rounded-full text-brand-sage text-[10px] font-bold uppercase tracking-widest mb-6 border border-white/15">
+    <Sparkles size={13} className="text-brand-gold" />
+    <span>Featured Educational Initiative</span>
+  </div>
 
-            {/* Description */}
-            <p className="text-brand-sage/90 text-base sm:text-lg leading-relaxed mb-8 font-light max-w-2xl">
-              Addressing educational gaps by providing after-school academic support, foundation building, and essential learning resources to underserved students.
-            </p>
+  {/* Title */}
+  <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold mb-2 text-white leading-tight">
+    Islah Academy
+  </h2>
 
-            {/* Modern Spec Cards Grid */}
-            <div className="grid grid-cols-2 gap-4 mb-10">
-              
-              <div className="bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/15 transition-all hover:bg-white/15">
-                <div className="flex items-center gap-2 text-brand-gold text-[10px] uppercase font-bold tracking-widest mb-1.5">
-                  <Target size={14} />
-                  <span>Target</span>
-                </div>
-                <dd className="text-sm sm:text-base font-semibold text-white">Grades 4 – 12</dd>
-              </div>
+  {/* Sub Title */}
+  <p className="text-brand-gold text-sm sm:text-base font-semibold mb-5">
+    A Unit of Islah Foundation
+  </p>
 
-              <div className="bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/15 transition-all hover:bg-white/15">
-                <div className="flex items-center gap-2 text-brand-gold text-[10px] uppercase font-bold tracking-widest mb-1.5">
-                  <MapPin size={14} />
-                  <span>Location</span>
-                </div>
-                <dd className="text-sm sm:text-base font-semibold text-white">New Hat Laucha</dd>
-              </div>
+  {/* Description */}
+  <p className="text-brand-sage/90 text-base sm:text-lg leading-relaxed mb-8 font-light max-w-2xl">
+    A structured full-day learning environment where students receive academic support,
+    supervised self-study, regular monitoring, Tarbiyah, mentoring and guidance while
+    continuing to live with their families.
+  </p>
 
-              <div className="bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/15 transition-all hover:bg-white/15">
-                <div className="flex items-center gap-2 text-brand-gold text-[10px] uppercase font-bold tracking-widest mb-1.5">
-                  <Activity size={14} />
-                  <span>Status</span>
-                </div>
-                <dd className="text-sm sm:text-base font-semibold text-emerald-300 flex items-center gap-1.5">
-                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                  Active
-                </dd>
-              </div>
+  {/* Modern Spec Cards Grid */}
+  <div className="grid grid-cols-2 gap-4 mb-10">
 
-              <div className="bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/15 transition-all hover:bg-white/15">
-                <div className="flex items-center gap-2 text-brand-gold text-[10px] uppercase font-bold tracking-widest mb-1.5">
-                  <HeartHandshake size={14} />
-                  <span>Support Needed</span>
-                </div>
-                <dd className="text-sm sm:text-base font-semibold text-white">Teachers, Kits</dd>
-              </div>
+    <div className="bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/15 transition-all hover:bg-white/15">
+      <div className="flex items-center gap-2 text-brand-gold text-[10px] uppercase font-bold tracking-widest mb-1.5">
+        <Target size={14} />
+        <span>Students</span>
+      </div>
+      <p className="text-sm sm:text-base font-semibold text-white">
+        Classes 4 – 12
+      </p>
+    </div>
 
-            </div>
+    <div className="bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/15 transition-all hover:bg-white/15">
+      <div className="flex items-center gap-2 text-brand-gold text-[10px] uppercase font-bold tracking-widest mb-1.5">
+        <MapPin size={14} />
+        <span>Location</span>
+      </div>
+      <p className="text-sm sm:text-base font-semibold text-white">
+        New Hat Laucha
+      </p>
+    </div>
 
+    <div className="bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/15 transition-all hover:bg-white/15">
+      <div className="flex items-center gap-2 text-brand-gold text-[10px] uppercase font-bold tracking-widest mb-1.5">
+        <Activity size={14} />
+        <span>Status</span>
+      </div>
+      <p className="text-sm sm:text-base font-semibold text-emerald-300 flex items-center gap-1.5">
+        <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+        Active
+      </p>
+    </div>
+
+    <div className="bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/15 transition-all hover:bg-white/15">
+      <div className="flex items-center gap-2 text-brand-gold text-[10px] uppercase font-bold tracking-widest mb-1.5">
+        <HeartHandshake size={14} />
+        <span>Support Needed</span>
+      </div>
+      <p className="text-sm sm:text-base font-semibold text-white">
+        Teachers, Mentors & Resources
+      </p>
+    </div>
+
+  </div>
             {/* Action Button */}
             <div className="flex flex-wrap items-center gap-4">
               <Link
