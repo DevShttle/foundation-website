@@ -79,7 +79,7 @@ export default function ContactPage() {
                   <div>
                     <h3 className="font-bold text-brand-charcoal text-sm">Registered Office</h3>
                     <p className="text-gray-600 text-sm leading-relaxed mt-1">
-                      MASOOM COMPLEX, Chandergaon,<br />
+                      MASOOM COMPLEX, New Hat Laucha,<br />
                       Post Office Laucha, Police Station Bahadurganj,<br />
                       District Kishanganj, Bihar 855101, India
                     </p>
