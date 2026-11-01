@@ -89,7 +89,7 @@ export default function ContactPage() {
                   <Mail className="text-brand-clay shrink-0 mt-1" />
                   <div>
                     <h3 className="font-bold text-brand-charcoal text-sm">Email Address</h3>
-                    <a href="mailto:info@islahfoundation.org" className="text-brand-green text-sm hover:underline mt-1 block">info@islahfoundation.org</a>
+                    <a href="mailto:islahfoundation.ngo@gmail.com" className="text-brand-green text-sm hover:underline mt-1 block">islahfoundation.ngo@gmail.com</a>
                   </div>
                 </li>
                 <li className="flex items-start gap-4">
