@@ -35,6 +35,7 @@ export const programs: Program[] = [
       "/images/programmes/Screenshot 2025-05-16 224421.png"
     ]
   },
+  
   {
     id: "p2",
     image: "/images/programmes/card-mentoring.png",
@@ -52,7 +53,7 @@ export const programs: Program[] = [
     ],
     gallery: [
       "/images/programmes/card-mentoring.png",
-      "/images/programmes/featured.jpg",
+      "/images/programmes/featured.jpeg",
       "/images/programmes/card-community.png"
     ]
   },
