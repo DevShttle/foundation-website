@@ -16,104 +16,172 @@ export interface Program {
 export const programs: Program[] = [
   {
     id: "p1",
-    image: "/images/programmes/card-education.png",
-    title: "Islah Learning Support Programme",
+    image: "/images/programmes/card-education.jpeg",
+    title: "Islah Academy",
     slug: "education",
-    summary: "Academic support and learning access shaped around local needs.",
+    summary:
+      "A structured full-day learning environment providing education, guidance and Tarbiyah closer to home.",
     category: "Education",
     status: "Active",
-    objective: "To reduce educational barriers by providing after-school academic support and essential learning resources to underserved students.",
-    whoItServes: "Students from grades 5 to 10 in Kishanganj who lack access to quality supplementary education.",
-    locations: ["Chandergaon", "Bahadurganj"],
-    outputs: [
-      { label: "Students Supported", value: "60+" },
-      { label: "Learning Sessions", value: "3000+" }
+
+    objective:
+      "To provide students with an affordable and structured learning environment close to home, combining academic education, supervised self-study, regular monitoring, Tarbiyah, mentoring and guidance.",
+
+    whoItServes:
+      "School students from nearby village communities who need stronger academic support, regular study supervision, guidance and a better daily learning environment.",
+
+    locations: [
+      "Masum Complex, New Hat Laucha",
+      "Bahadurganj, Kishanganj"
     ],
+
+    outputs: [
+      { label: "Current Students", value: "Around 45" },
+      { label: "Teachers", value: "4" }
+    ],
+
     gallery: [
-      "/images/programmes/Screenshot 2025-05-16 214339.png",
-      "/images/programmes/Screenshot 2025-05-16 223403.png",
-      "/images/programmes/Screenshot 2025-05-16 224421.png"
+      "/images/programmes/edu-gal-02.PNG",
+      "/images/programmes/card-education.png",
+      "/images/programmes/edu-gal-01.png",
+      "/images/programmes/edu-gal-03.png"
     ]
   },
-  
+
   {
     id: "p2",
     image: "/images/programmes/card-mentoring.png",
     title: "Student Mentorship Initiative",
     slug: "mentorship",
-    summary: "Patient guidance that helps young people build confidence and direction.",
+
+    summary:
+      "Helping students learn from teachers, professionals and mentors beyond the classroom.",
+
     category: "Mentorship",
     status: "Active",
-    objective: "To provide one-on-one and group mentoring for students navigating academic choices and personal development.",
-    whoItServes: "Primary, Secondary and High school students.",
-    locations: ["Bahadur ganj", "Kishanganj District"],
-    outputs: [
-      { label: "Mentoring Hours", value: "30+" },
-      { label: "Active Mentors", value: "5" }
+
+    objective:
+      "To connect students with teachers, professionals, alumni and mentors who can guide them in academics, board-exam preparation, study habits, career awareness and personal development.",
+
+    whoItServes:
+      "School students who can benefit from academic guidance, career awareness, mentoring and exposure to wider educational opportunities.",
+
+    locations: [
+      "Islah Academy, Bahadurganj",
+      "Online"
     ],
+
+    outputs: [
+      { label: "Mode", value: "Online & Offline" },
+      { label: "Focus", value: "Student Guidance" }
+    ],
+
     gallery: [
       "/images/programmes/card-mentoring.png",
       "/images/programmes/featured.jpeg",
       "/images/programmes/card-community.png"
     ]
   },
+
   {
     id: "p3",
-    image: "/images/programmes/card-resources.jpg",
+    image: "/images/programmes/card-resources.jpeg",
     title: "Digital Literacy & Skills",
     slug: "skills",
-    summary: "Practical digital and career-readiness foundations for a changing world.",
+
+    summary:
+      "Gradually building practical skills that can support students in education and future opportunities.",
+
     category: "Skills",
     status: "Planned",
-    objective: "To equip youth with foundational digital skills, computer literacy, and basic professional communication.",
-    whoItServes: "Youth and young adults seeking employment or higher education.",
-    locations: ["Planned for Bahadurganj"],
-    outputs: [],
+
+    objective:
+      "To progressively introduce practical learning opportunities in areas such as basic computer skills, digital literacy, spoken English, communication, study skills and career awareness as suitable resources and mentors become available.",
+
+    whoItServes:
+      "Students and young people who can benefit from practical skills alongside their academic education.",
+
+    locations: [
+      "Planned through Islah Academy, Bahadurganj"
+    ],
+
+    outputs: [
+      { label: "Current Status", value: "Planned" },
+      { label: "Approach", value: "Skill Development" }
+    ],
+
     gallery: [
-      "/images/programmes/card-resources.jpg",
+      "/images/programmes/card-resources.jpeg",
       "/images/programmes/card-community.png",
-      "/images/programmes/featured.jpg"
+      "/images/programmes/featured.jpeg"
     ]
   },
+
   {
     id: "p4",
     image: "/images/programmes/card-community.png",
     title: "Community Development",
     slug: "community",
-    summary: "Community-led wellbeing, awareness and responsible service.",
+
+    summary:
+      "Encouraging community participation in education, student development and responsible service.",
+
     category: "Community",
-    status: "Active",
-    objective: "To foster community-led wellbeing, environmental awareness, and responsible service through collaborative initiatives.",
-    whoItServes: "Local residents, families, and community members in Kishanganj.",
-    locations: ["Kishanganj District"],
-    outputs: [
-      { label: "Community Events", value: "15+" },
-      { label: "Families Engaged", value: "250+" }
+    status: "Community Initiative",
+
+    objective:
+      "To involve parents, teachers, professionals, volunteers and well-wishers in creating a stronger educational environment for students and supporting meaningful community-based initiatives.",
+
+    whoItServes:
+      "Students, families and community members connected with Islah Foundation and its educational activities.",
+
+    locations: [
+      "Bahadurganj",
+      "Kishanganj District"
     ],
+
+    outputs: [
+      { label: "Main Focus", value: "Education" },
+      { label: "Approach", value: "Community Participation" }
+    ],
+
     gallery: [
       "/images/programmes/card-community.png",
-      "/images/programmes/featured.jpg",
+      "/images/programmes/featured.jpeg",
       "/images/programmes/card-mentoring.png"
     ]
   },
+
   {
     id: "p5",
-    image: "/images/programmes/card-resources.jpg",
-    title: "Scholarships & Resources",
+    image: "/images/programmes/card-resources.jpeg",
+    title: "Scholarships & Learning Resources",
     slug: "scholarships",
-    summary: "Helping reduce barriers to essential learning materials.",
+
+    summary:
+      "Supporting students with learning resources and educational assistance according to need and available support.",
+
     category: "Scholarships",
     status: "Community Initiative",
-    objective: "To provide scholarships and distribute necessary learning materials to students in need.",
-    whoItServes: "Students facing financial hardships in pursuing their education.",
-    locations: ["Kishanganj District"],
-    outputs: [
-      { label: "Scholarships Granted", value: "20+" },
-      { label: "Resources Distributed", value: "200+" }
+
+    objective:
+      "To help reduce financial barriers to education by supporting students with books, study materials, academic resources and other educational assistance where possible.",
+
+    whoItServes:
+      "Students who may need additional educational support because of financial or resource limitations.",
+
+    locations: [
+      "Kishanganj District"
     ],
+
+    outputs: [
+      { label: "Support Type", value: "Need-Based" },
+      { label: "Focus", value: "Educational Resources" }
+    ],
+
     gallery: [
-      "/images/programmes/card-resources.jpg",
-      "/images/programmes/featured.jpg",
+      "/images/programmes/card-resources.jpeg",
+      "/images/programmes/featured.jpeg",
       "/images/programmes/card-community.png"
     ]
   }

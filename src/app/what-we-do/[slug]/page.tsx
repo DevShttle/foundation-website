@@ -78,7 +78,11 @@ export default async function ProgrammePage({ params }: Props) {
               <h2 className="font-serif text-3xl text-brand-green mb-6">The Challenge</h2>
               <div className="prose prose-lg prose-emerald text-brand-charcoal/80">
                 <p>
-                  In the underserved regions of Kishanganj, systemic barriers prevent many from accessing the specific support required to thrive. This programme was conceived directly in response to these pressing, localized needs, identified through deep community consultation.
+                  Many students in nearby villages have limited access to experienced teachers, regular academic guidance, mentoring and a structured place to study.
+
+                  Better educational opportunities are often available in towns, but sending a child away from home may require hostel, food, travel and other expenses that many families cannot easily afford.
+
+                  We believe a student should not miss out on a good educational environment simply because the family cannot afford residential education..
                 </p>
               </div>
             </section>
