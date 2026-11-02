@@ -76,14 +76,10 @@ export default async function ProgrammePage({ params }: Props) {
             {/* 2. Problem or Need */}
             <section>
               <h2 className="font-serif text-3xl text-brand-green mb-6">The Challenge</h2>
-              <div className="prose prose-lg prose-emerald text-brand-charcoal/80">
-                <p>
-                  Many students in nearby villages have limited access to experienced teachers, regular academic guidance, mentoring and a structured place to study.
-
-                  Better educational opportunities are often available in towns, but sending a child away from home may require hostel, food, travel and other expenses that many families cannot easily afford.
-
-                  We believe a student should not miss out on a good educational environment simply because the family cannot afford residential education..
-                </p>
+              <div className="prose prose-lg prose-emerald text-brand-charcoal/80 space-y-4">
+                {program.challenge.map((paragraph) => (
+                  <p key={paragraph}>{paragraph}</p>
+                ))}
               </div>
             </section>
 
@@ -99,27 +95,17 @@ export default async function ProgrammePage({ params }: Props) {
             <section>
               <h2 className="font-serif text-3xl text-brand-green mb-6">Activities & Delivery Model</h2>
               <div className="bg-[#fbf8f1] p-8 rounded-xl border border-brand-sage/50 space-y-6">
-                <div className="flex items-start gap-4">
-                  <div className="w-8 h-8 rounded-full bg-brand-green/10 flex items-center justify-center text-brand-green shrink-0">1</div>
-                  <div>
-                    <h3 className="font-bold text-brand-charcoal mb-1">Needs Assessment</h3>
-                    <p className="text-sm text-gray-600">Identifying localized requirements through direct community consultation.</p>
+                {program.activities.map((activity, idx) => (
+                  <div key={activity.title} className="flex items-start gap-4">
+                    <div className="w-8 h-8 rounded-full bg-brand-green/10 flex items-center justify-center text-brand-green shrink-0">
+                      {idx + 1}
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-brand-charcoal mb-1">{activity.title}</h3>
+                      <p className="text-sm text-gray-600">{activity.description}</p>
+                    </div>
                   </div>
-                </div>
-                <div className="flex items-start gap-4">
-                  <div className="w-8 h-8 rounded-full bg-brand-green/10 flex items-center justify-center text-brand-green shrink-0">2</div>
-                  <div>
-                    <h3 className="font-bold text-brand-charcoal mb-1">Resource Mobilization</h3>
-                    <p className="text-sm text-gray-600">Gathering necessary learning materials, educators, or infrastructure.</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-4">
-                  <div className="w-8 h-8 rounded-full bg-brand-green/10 flex items-center justify-center text-brand-green shrink-0">3</div>
-                  <div>
-                    <h3 className="font-bold text-brand-charcoal mb-1">Consistent Engagement</h3>
-                    <p className="text-sm text-gray-600">Delivering weekly sessions and maintaining accountability via volunteers and teachers.</p>
-                  </div>
-                </div>
+                ))}
               </div>
             </section>
 
@@ -139,14 +125,12 @@ export default async function ProgrammePage({ params }: Props) {
             )}
 
             {/* 9. Outcomes */}
-            {program.status !== "Planned" && (
-              <section>
-                <h2 className="font-serif text-3xl text-brand-green mb-6">Expected Outcomes</h2>
-                <p className="text-brand-charcoal/80 text-lg leading-relaxed">
-                  Beyond direct numerical outputs, this programme focuses on qualitative shifts: increased student confidence, higher retention rates in formal schooling, and stronger community cohesion around educational values.
-                </p>
-              </section>
-            )}
+            <section>
+              <h2 className="font-serif text-3xl text-brand-green mb-6">Expected Outcomes</h2>
+              <p className="text-brand-charcoal/80 text-lg leading-relaxed">
+                {program.expectedOutcomes}
+              </p>
+            </section>
 
             {/* 11. Gallery */}
             <section>

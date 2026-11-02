@@ -6,10 +6,13 @@ export interface Program {
   summary: string;
   category: "Education" | "Mentorship" | "Skills" | "Community" | "Scholarships";
   status: "Active" | "Planned" | "Community Initiative";
+  challenge: string[];
   objective: string;
   whoItServes: string;
   locations: string[];
   outputs: { label: string; value: string }[];
+  activities: { title: string; description: string }[];
+  expectedOutcomes: string;
   gallery: string[];
 }
 
@@ -23,6 +26,12 @@ export const programs: Program[] = [
       "A structured full-day learning environment providing education, guidance and Tarbiyah closer to home.",
     category: "Education",
     status: "Active",
+
+    challenge: [
+      "Many students in nearby villages have limited access to experienced teachers, regular academic guidance, mentoring and a structured place to study.",
+      "Better educational opportunities are often available in towns, but sending a child away from home may require hostel, food, travel and other expenses that many families cannot easily afford.",
+      "We believe a student should not miss out on a good educational environment simply because the family cannot afford residential education."
+    ],
 
     objective:
       "To provide students with an affordable and structured learning environment close to home, combining academic education, supervised self-study, regular monitoring, Tarbiyah, mentoring and guidance.",
@@ -39,6 +48,27 @@ export const programs: Program[] = [
       { label: "Current Students", value: "Around 45" },
       { label: "Teachers", value: "4" }
     ],
+
+    activities: [
+      {
+        title: "Structured Full-Day Learning",
+        description:
+          "Students follow a consistent daily routine of academic classes, supervised self-study, board preparation and doubt solving."
+      },
+      {
+        title: "Academic Monitoring & Support",
+        description:
+          "Teachers identify learning gaps, monitor attendance and progress, and provide offline or hybrid guidance according to each student's needs."
+      },
+      {
+        title: "Tarbiyah, Mentorship & Exposure",
+        description:
+          "Tarbiyah, character guidance, mentoring and interaction with educators and professionals strengthen students' confidence and aspirations."
+      }
+    ],
+
+    expectedOutcomes:
+      "Students develop stronger academic foundations, disciplined study habits, improved examination readiness, greater confidence and values-led personal growth while remaining connected to their families and communities.",
 
     gallery: [
       "/images/programmes/edu-gal-02.PNG",
@@ -60,6 +90,11 @@ export const programs: Program[] = [
     category: "Mentorship",
     status: "Active",
 
+    challenge: [
+      "Many students make important academic and career decisions without regular access to experienced people who can explain their options, encourage consistent study and help them respond to setbacks.",
+      "Schools and families provide essential support, but students can still lack personalised guidance, professional exposure and a trusted mentor with whom they can discuss goals and challenges."
+    ],
+
     objective:
       "To connect students with teachers, professionals, alumni and mentors who can guide them in academics, board-exam preparation, study habits, career awareness and personal development.",
 
@@ -75,6 +110,27 @@ export const programs: Program[] = [
       { label: "Mode", value: "Online & Offline" },
       { label: "Focus", value: "Student Guidance" }
     ],
+
+    activities: [
+      {
+        title: "Student Needs & Mentor Matching",
+        description:
+          "Students' academic, career and personal-development needs are identified so they can be connected with suitable teachers, professionals or mentors."
+      },
+      {
+        title: "Regular Mentoring Sessions",
+        description:
+          "One-to-one and group sessions are delivered online or offline to support study habits, board preparation, confidence and decision-making."
+      },
+      {
+        title: "Follow-up & Opportunity Exposure",
+        description:
+          "Mentors review student goals, track progress and introduce relevant educational pathways, careers and wider learning opportunities."
+      }
+    ],
+
+    expectedOutcomes:
+      "Students gain clearer academic and career direction, stronger study habits, greater confidence in seeking guidance and broader awareness of educational and professional opportunities.",
 
     gallery: [
       "/images/programmes/card-mentoring.png",
@@ -95,6 +151,11 @@ export const programs: Program[] = [
     category: "Skills",
     status: "Planned",
 
+    challenge: [
+      "Students in village communities often have limited access to computers, reliable digital learning opportunities and practical communication training.",
+      "As education and employment increasingly require digital confidence, this gap can prevent capable young people from accessing information, completing online tasks and preparing for future opportunities."
+    ],
+
     objective:
       "To progressively introduce practical learning opportunities in areas such as basic computer skills, digital literacy, spoken English, communication, study skills and career awareness as suitable resources and mentors become available.",
 
@@ -109,6 +170,27 @@ export const programs: Program[] = [
       { label: "Current Status", value: "Planned" },
       { label: "Approach", value: "Skill Development" }
     ],
+
+    activities: [
+      {
+        title: "Curriculum & Resource Preparation",
+        description:
+          "Relevant modules, devices, learning materials and volunteer trainers will be identified before each practical skills programme begins."
+      },
+      {
+        title: "Hands-on Learning Sessions",
+        description:
+          "Students will receive guided practice in basic computer use, digital literacy, spoken English, communication and career-readiness skills."
+      },
+      {
+        title: "Practice, Projects & Feedback",
+        description:
+          "Short tasks and practical projects will help students apply new skills, receive feedback and progress at an appropriate pace."
+      }
+    ],
+
+    expectedOutcomes:
+      "Students are expected to build practical digital and communication confidence, use technology more safely and independently, and become better prepared for further education and future opportunities.",
 
     gallery: [
       "/images/programmes/card-resources.jpeg",
@@ -129,6 +211,11 @@ export const programs: Program[] = [
     category: "Community",
     status: "Community Initiative",
 
+    challenge: [
+      "Educational progress is difficult to sustain when parents, teachers, volunteers and local professionals work separately or are unsure how they can contribute.",
+      "Communities may have goodwill and useful skills, but need coordination, clear priorities and responsible ways to support students and local educational initiatives."
+    ],
+
     objective:
       "To involve parents, teachers, professionals, volunteers and well-wishers in creating a stronger educational environment for students and supporting meaningful community-based initiatives.",
 
@@ -144,6 +231,27 @@ export const programs: Program[] = [
       { label: "Main Focus", value: "Education" },
       { label: "Approach", value: "Community Participation" }
     ],
+
+    activities: [
+      {
+        title: "Community Consultation & Priority Setting",
+        description:
+          "Parents, teachers and local stakeholders help identify educational and community needs that can be addressed responsibly."
+      },
+      {
+        title: "Volunteer & Parent Participation",
+        description:
+          "Community members contribute time, knowledge, mentoring, outreach or resources according to the needs of each initiative."
+      },
+      {
+        title: "Coordinated Action & Follow-up",
+        description:
+          "Activities are organised with clear responsibilities, practical follow-up and feedback from participating students and families."
+      }
+    ],
+
+    expectedOutcomes:
+      "Families and community members become more actively involved in education, local support networks grow stronger, and students benefit from a more encouraging and accountable learning environment.",
 
     gallery: [
       "/images/programmes/card-community.png",
@@ -164,6 +272,11 @@ export const programs: Program[] = [
     category: "Scholarships",
     status: "Community Initiative",
 
+    challenge: [
+      "The cost of books, study materials, examination support and other learning resources can interrupt a student's progress even when the student is motivated to continue.",
+      "Families facing financial pressure may be forced to delay or reduce educational spending, while available donations do not always reach verified needs through a transparent process."
+    ],
+
     objective:
       "To help reduce financial barriers to education by supporting students with books, study materials, academic resources and other educational assistance where possible.",
 
@@ -178,6 +291,27 @@ export const programs: Program[] = [
       { label: "Support Type", value: "Need-Based" },
       { label: "Focus", value: "Educational Resources" }
     ],
+
+    activities: [
+      {
+        title: "Need Identification & Verification",
+        description:
+          "Student needs are reviewed with families, teachers and available records so support can be prioritised fairly and responsibly."
+      },
+      {
+        title: "Resource Mobilisation & Allocation",
+        description:
+          "Donations and available resources are matched to verified needs, including books, study materials and other educational assistance."
+      },
+      {
+        title: "Distribution, Follow-up & Reporting",
+        description:
+          "Support is documented and followed up to understand whether the resources reached the student and contributed to continued learning."
+      }
+    ],
+
+    expectedOutcomes:
+      "Students facing resource limitations receive timely educational support, participate more consistently in learning and experience fewer financial barriers to continuing their studies.",
 
     gallery: [
       "/images/programmes/card-resources.jpeg",
